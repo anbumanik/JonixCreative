@@ -151,10 +151,10 @@ const IntroVideoSection = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                className="flex items-center gap-4 p-5 rounded-xl glass border border-white/5 hover:border-blue-500/20 transition-all group card-hover justify-center sm:justify-start"
+                className="flex flex-col items-center text-center gap-3 p-6 rounded-2xl glass border border-white/5 hover:border-blue-500/20 transition-all group card-hover"
               >
-                <CheckCircle size={22} className="text-blue-400 shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="text-slate-300 text-sm md:text-base font-medium">{feature.text}</span>
+                <CheckCircle size={26} className="text-blue-400 shrink-0 group-hover:scale-110 transition-transform" />
+                <span className="text-slate-300 text-sm md:text-base font-medium leading-relaxed">{feature.text}</span>
               </motion.div>
             ))}
           </div>
