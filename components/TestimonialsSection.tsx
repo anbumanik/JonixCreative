@@ -9,11 +9,11 @@ import type { Testimonial } from '@/lib/types';
 import Image from 'next/image';
 
 const StarRating = ({ rating }: { rating: number }) => (
-  <div className="flex gap-1 mb-4">
+  <div className="flex justify-center gap-1 mb-6">
     {Array.from({ length: 5 }).map((_, i) => (
       <Star
         key={i}
-        size={16}
+        size={18}
         className={i < rating ? 'star-filled' : 'text-slate-600'}
         fill={i < rating ? '#fbbf24' : 'none'}
       />
@@ -91,25 +91,25 @@ const TestimonialsSection = () => {
                 fill="currentColor"
               />
 
-              <div className="relative">
+              <div className="relative flex flex-col items-center text-center">
                 <StarRating rating={t.rating} />
 
-                <blockquote className="text-white text-lg sm:text-xl md:text-2xl font-medium leading-relaxed mb-8 max-w-3xl">
+                <blockquote className="text-white text-lg sm:text-xl md:text-2xl font-medium leading-relaxed mb-8 max-w-4xl">
                   &ldquo;{t.review}&rdquo;
                 </blockquote>
 
-                <div className="flex items-center gap-4">
-                  <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-blue-500/40 glow-blue-sm">
+                <div className="flex flex-col items-center gap-3">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-blue-500/40 glow-blue-sm">
                     <Image
                       src={t.avatar}
                       alt={t.name}
                       fill
                       className="object-cover"
-                      sizes="56px"
+                      sizes="64px"
                     />
                   </div>
                   <div>
-                    <p className="text-white font-semibold">{t.name}</p>
+                    <p className="text-white font-semibold text-lg">{t.name}</p>
                     <p className="text-blue-400 text-sm">
                       {t.role} — {t.company}
                     </p>
@@ -120,36 +120,53 @@ const TestimonialsSection = () => {
           </AnimatePresence>
 
           {/* Navigation */}
-          <div className="flex items-center justify-between mt-8">
+          {/* Navigation */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mt-10">
+            {/* Arrows Prev */}
+            <button
+              id="testimonial-prev"
+              onClick={goPrev}
+              className="hidden sm:flex w-12 h-12 rounded-full glass border border-white/10 items-center justify-center text-slate-400 hover:text-white hover:border-blue-500/40 hover:bg-blue-500/10 transition-all"
+            >
+              <ChevronLeft size={20} />
+            </button>
+
             {/* Dots */}
-            <div className="flex gap-2">
+            <div className="flex gap-3">
               {testimonials.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
                   className={`transition-all duration-300 rounded-full ${
                     i === current
-                      ? 'w-8 h-2 bg-blue-500'
-                      : 'w-2 h-2 bg-white/20 hover:bg-white/40'
+                      ? 'w-10 h-2.5 bg-blue-500'
+                      : 'w-2.5 h-2.5 bg-white/20 hover:bg-white/40'
                   }`}
                   aria-label={`Testimonial ${i + 1}`}
                 />
               ))}
             </div>
 
-            {/* Arrows */}
-            <div className="flex gap-3">
+            {/* Arrows Next */}
+            <button
+              id="testimonial-next"
+              onClick={goNext}
+              className="hidden sm:flex w-12 h-12 rounded-full glass border border-white/10 items-center justify-center text-slate-400 hover:text-white hover:border-blue-500/40 hover:bg-blue-500/10 transition-all"
+            >
+              <ChevronRight size={20} />
+            </button>
+            
+            {/* Mobile Arrows (shown below dots on small screens) */}
+            <div className="flex sm:hidden gap-4 mt-2">
               <button
-                id="testimonial-prev"
                 onClick={goPrev}
-                className="w-10 h-10 rounded-full glass border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-blue-500/40 transition-all"
+                className="w-10 h-10 rounded-full glass border border-white/10 flex items-center justify-center text-slate-400"
               >
                 <ChevronLeft size={18} />
               </button>
               <button
-                id="testimonial-next"
                 onClick={goNext}
-                className="w-10 h-10 rounded-full glass border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-blue-500/40 transition-all"
+                className="w-10 h-10 rounded-full glass border border-white/10 flex items-center justify-center text-slate-400"
               >
                 <ChevronRight size={18} />
               </button>
