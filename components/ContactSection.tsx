@@ -94,13 +94,15 @@ const ContactSection = () => {
             {/* Info cards */}
             <div className="space-y-4">
               {[
-                { Icon: Phone, label: 'Phone', value: CONTACT_INFO.phone, href: `tel:${CONTACT_INFO.phone}` },
-                { Icon: Mail, label: 'Email', value: CONTACT_INFO.email, href: `mailto:${CONTACT_INFO.email}` },
-                { Icon: MapPin, label: 'Location', value: CONTACT_INFO.location, href: '#' },
-              ].map(({ Icon, label, value, href }) => (
+                { Icon: Phone, label: 'Phone', value: CONTACT_INFO.phone, href: `tel:${CONTACT_INFO.phone}`, target: undefined, rel: undefined },
+                { Icon: Mail, label: 'Email', value: CONTACT_INFO.email, href: `mailto:${CONTACT_INFO.email}`, target: undefined, rel: undefined },
+                { Icon: MapPin, label: 'Location', value: CONTACT_INFO.location, href: `https://maps.google.com/?q=${encodeURIComponent(CONTACT_INFO.location)}`, target: '_blank', rel: 'noopener noreferrer' },
+              ].map(({ Icon, label, value, href, target, rel }) => (
                 <a
                   key={label}
                   href={href}
+                  target={target}
+                  rel={rel}
                   className="flex items-center gap-4 p-5 rounded-2xl glass border border-white/5 hover:border-blue-500/20 transition-all group card-hover"
                 >
                   <div className="w-11 h-11 rounded-xl bg-blue-600/15 border border-blue-500/20 flex items-center justify-center group-hover:bg-blue-600/25 transition-colors shrink-0">
@@ -189,9 +191,9 @@ const ContactSection = () => {
               >
                 <div className="grid sm:grid-cols-2 gap-6">
                   {/* Name */}
-                  <div>
-                    <label htmlFor="contact-name" className="block text-slate-400 text-xs uppercase tracking-wider mb-2">
-                      Full Name *
+                  <div className="flex flex-col">
+                    <label htmlFor="contact-name" className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">
+                      Full Name <span className="text-blue-500/80">*</span>
                     </label>
                     <input
                       id="contact-name"
@@ -201,14 +203,14 @@ const ContactSection = () => {
                       value={form.name}
                       onChange={handleChange}
                       placeholder="Your name"
-                      className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all text-sm"
+                      className="w-full px-5 py-4 rounded-xl bg-white/[0.02] border border-white/8 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.05] transition-all duration-300 text-[14px]"
                     />
                   </div>
 
                   {/* Email */}
-                  <div>
-                    <label htmlFor="contact-email" className="block text-slate-400 text-xs uppercase tracking-wider mb-2">
-                      Email Address *
+                  <div className="flex flex-col">
+                    <label htmlFor="contact-email" className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">
+                      Email Address <span className="text-blue-500/80">*</span>
                     </label>
                     <input
                       id="contact-email"
@@ -218,15 +220,15 @@ const ContactSection = () => {
                       value={form.email}
                       onChange={handleChange}
                       placeholder="your@email.com"
-                      className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all text-sm"
+                      className="w-full px-5 py-4 rounded-xl bg-white/[0.02] border border-white/8 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.05] transition-all duration-300 text-[14px]"
                     />
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-6">
                   {/* Phone */}
-                  <div>
-                    <label htmlFor="contact-phone" className="block text-slate-400 text-xs uppercase tracking-wider mb-2">
+                  <div className="flex flex-col">
+                    <label htmlFor="contact-phone" className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">
                       Phone Number
                     </label>
                     <input
@@ -236,35 +238,42 @@ const ContactSection = () => {
                       value={form.phone}
                       onChange={handleChange}
                       placeholder="+1 234 567 8900"
-                      className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all text-sm"
+                      className="w-full px-5 py-4 rounded-xl bg-white/[0.02] border border-white/8 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.05] transition-all duration-300 text-[14px]"
                     />
                   </div>
 
                   {/* Project Type */}
-                  <div>
-                    <label htmlFor="contact-project" className="block text-slate-400 text-xs uppercase tracking-wider mb-2">
-                      Project Type *
+                  <div className="flex flex-col">
+                    <label htmlFor="contact-project" className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">
+                      Project Type <span className="text-blue-500/80">*</span>
                     </label>
-                    <select
-                      id="contact-project"
-                      name="projectType"
-                      required
-                      value={form.projectType}
-                      onChange={handleChange}
-                      className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all text-sm appearance-none"
-                    >
-                      <option value="" disabled className="bg-slate-900">Select type...</option>
-                      {PROJECT_TYPES.map((t) => (
-                        <option key={t} value={t} className="bg-slate-900">{t}</option>
-                      ))}
-                    </select>
+                    <div className="relative">
+                      <select
+                        id="contact-project"
+                        name="projectType"
+                        required
+                        value={form.projectType}
+                        onChange={handleChange}
+                        className="w-full px-5 py-4 rounded-xl bg-white/[0.02] border border-white/8 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.05] transition-all duration-300 text-[14px] appearance-none cursor-pointer pr-10"
+                      >
+                        <option value="" disabled className="bg-[#0f0f1c] text-slate-500">Select type...</option>
+                        {PROJECT_TYPES.map((t) => (
+                          <option key={t} value={t} className="bg-[#0f0f1c] text-white">{t}</option>
+                        ))}
+                      </select>
+                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Message */}
-                <div>
-                  <label htmlFor="contact-message" className="block text-slate-400 text-xs uppercase tracking-wider mb-2">
-                    Project Details *
+                <div className="flex flex-col">
+                  <label htmlFor="contact-message" className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">
+                    Project Details <span className="text-blue-500/80">*</span>
                   </label>
                   <textarea
                     id="contact-message"
@@ -274,7 +283,7 @@ const ContactSection = () => {
                     value={form.message}
                     onChange={handleChange}
                     placeholder="Tell us about your project, timeline, and any specific requirements..."
-                    className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all text-sm resize-none"
+                    className="w-full px-5 py-4 rounded-xl bg-white/[0.02] border border-white/8 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.05] transition-all duration-300 text-[14px] resize-none leading-relaxed"
                   />
                 </div>
 
@@ -304,13 +313,12 @@ const ContactSection = () => {
                       </>
                     )}
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="btn-outline"
+                  <a
+                    href={`mailto:${CONTACT_INFO.email}`}
+                    className="btn-outline flex-1 sm:flex-none justify-center min-w-[180px] text-center"
                   >
                     Contact Us
-                  </button>
+                  </a>
                 </div>
               </form>
             )}
