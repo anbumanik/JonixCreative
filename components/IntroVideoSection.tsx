@@ -30,14 +30,14 @@ const IntroVideoSection = () => {
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="w-full text-center mb-16 flex flex-col items-center"
         >
           <div className="section-divider" />
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mt-4">
@@ -52,7 +52,7 @@ const IntroVideoSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative max-w-5xl mx-auto mb-20"
+          className="relative w-full max-w-5xl mx-auto mb-20"
         >
           {/* Glow behind video */}
           <div className="absolute inset-0 bg-blue-600/20 rounded-2xl blur-2xl" />
@@ -129,20 +129,20 @@ const IntroVideoSection = () => {
         </motion.div>
 
         {/* Features list - Grid layout */}
-        <div className="max-w-5xl mx-auto">
+        <div className="w-full max-w-5xl mx-auto flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="text-center mb-12"
+            className="w-full text-center mb-12"
           >
             <h3 className="font-display text-3xl sm:text-4xl text-white">
               What Makes Us <span className="gradient-text">Different</span>
             </h3>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+          <div className="w-full grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
             {FEATURES.map((feature, i) => (
               <motion.div
                 key={i}
