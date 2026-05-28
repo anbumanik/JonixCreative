@@ -56,14 +56,14 @@ const TestimonialsSection = () => {
       {/* Background */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-blue-900/8 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto">
+      <div className="w-full max-w-5xl mx-auto flex flex-col items-center px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="w-full text-center mb-20 flex flex-col items-center"
         >
           <div className="section-divider" />
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mt-4">
@@ -72,7 +72,7 @@ const TestimonialsSection = () => {
         </motion.div>
 
         {/* Testimonial card */}
-        <div className="relative">
+        <div className="relative w-full">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={current}
