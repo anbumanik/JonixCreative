@@ -185,7 +185,7 @@ const ContactSection = () => {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="glass border border-white/8 rounded-3xl p-8 sm:p-10 space-y-6"
+                className="glass border border-white/8 rounded-3xl p-8 sm:p-10 flex flex-col gap-6"
               >
                 <div className="grid sm:grid-cols-2 gap-6">
                   {/* Name */}
@@ -201,7 +201,7 @@ const ContactSection = () => {
                       value={form.name}
                       onChange={handleChange}
                       placeholder="Your name"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/8 transition-all text-sm"
+                      className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all text-sm"
                     />
                   </div>
 
@@ -218,7 +218,7 @@ const ContactSection = () => {
                       value={form.email}
                       onChange={handleChange}
                       placeholder="your@email.com"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/8 transition-all text-sm"
+                      className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all text-sm"
                     />
                   </div>
                 </div>
@@ -236,7 +236,7 @@ const ContactSection = () => {
                       value={form.phone}
                       onChange={handleChange}
                       placeholder="+1 234 567 8900"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/8 transition-all text-sm"
+                      className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all text-sm"
                     />
                   </div>
 
@@ -251,7 +251,7 @@ const ContactSection = () => {
                       required
                       value={form.projectType}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-blue-500/50 transition-all text-sm appearance-none"
+                      className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all text-sm appearance-none"
                     >
                       <option value="" disabled className="bg-slate-900">Select type...</option>
                       {PROJECT_TYPES.map((t) => (
@@ -274,7 +274,7 @@ const ContactSection = () => {
                     value={form.message}
                     onChange={handleChange}
                     placeholder="Tell us about your project, timeline, and any specific requirements..."
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/8 transition-all text-sm resize-none"
+                    className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all text-sm resize-none"
                   />
                 </div>
 
