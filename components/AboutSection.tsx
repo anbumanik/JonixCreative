@@ -96,37 +96,39 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="w-full flex justify-center"
           >
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] max-w-md mx-auto">
-              <Image
-                src="/images/founder.png"
-                alt="JonixCreative Founder"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 400px"
-              />
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-transparent to-transparent" />
+            <div className="relative w-full max-w-md">
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] w-full">
+                <Image
+                  src="/images/founder.png"
+                  alt="JonixCreative Founder"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 400px"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-transparent to-transparent" />
 
-              {/* Founder badge */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="glass rounded-xl p-4 border border-white/10">
-                  <p className="text-white font-semibold">Jonix Kumar</p>
-                  <p className="text-blue-400 text-sm">Founder & Creative Director</p>
+                {/* Founder badge */}
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="glass rounded-xl p-4 border border-white/10">
+                    <p className="text-white font-semibold">Jonix Kumar</p>
+                    <p className="text-blue-400 text-sm">Founder & Creative Director</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Experience badge floating */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -top-4 -right-4 sm:top-8 sm:right-0 glass-strong rounded-2xl p-4 border border-blue-500/20 glow-blue-sm"
-            >
-              <p className="font-display text-3xl text-blue-400">5+</p>
-              <p className="text-slate-400 text-xs">Years</p>
-            </motion.div>
+              {/* Experience badge floating */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute top-6 right-6 sm:top-8 sm:-right-4 glass-strong rounded-2xl p-4 border border-blue-500/20 glow-blue-sm z-10"
+              >
+                <p className="font-display text-3xl text-blue-400">5+</p>
+                <p className="text-slate-400 text-xs">Years</p>
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Right: Content */}
