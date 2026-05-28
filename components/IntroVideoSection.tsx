@@ -135,7 +135,7 @@ const IntroVideoSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="w-full text-center mb-12"
+            className="w-full text-center mt-12 mb-16"
           >
             <h3 className="font-display text-3xl sm:text-4xl text-white">
               What Makes Us <span className="gradient-text">Different</span>
