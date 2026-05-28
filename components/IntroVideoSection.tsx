@@ -142,7 +142,7 @@ const IntroVideoSection = () => {
             </h3>
           </motion.div>
 
-          <div className="w-full grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+          <div className="w-full grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-24">
             {FEATURES.map((feature, i) => (
               <motion.div
                 key={i}
@@ -164,7 +164,7 @@ const IntroVideoSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.5 }}
-            className="text-center"
+            className="text-center mt-12"
           >
             <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
