@@ -108,10 +108,13 @@ const Navbar = () => {
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => scrollTo('#contact')}
-                className="hidden lg:flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white relative overflow-hidden group"
+                className="hidden lg:flex items-center gap-2 text-sm font-semibold text-white relative overflow-hidden group"
                 style={{
                   background: 'linear-gradient(135deg, #1d4ed8, #3b82f6)',
-                  boxShadow: '0 0 20px rgba(59,130,246,0.35)',
+                  boxShadow: '0 0 25px rgba(59,130,246,0.4)',
+                  padding: '11px 26px',
+                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  borderRadius: '9999px',
                 }}
               >
                 {/* Shimmer effect */}
@@ -233,8 +236,14 @@ const Navbar = () => {
               <div className="px-4 pb-8 pt-2">
                 <button
                   onClick={() => scrollTo('#contact')}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-semibold text-white"
-                  style={{ background: 'linear-gradient(135deg, #1d4ed8, #3b82f6)', boxShadow: '0 4px 20px rgba(59,130,246,0.3)' }}
+                  className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white"
+                  style={{
+                    background: 'linear-gradient(135deg, #1d4ed8, #3b82f6)',
+                    boxShadow: '0 4px 20px rgba(59,130,246,0.3)',
+                    padding: '13px 24px',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    borderRadius: '12px',
+                  }}
                 >
                   Start Your Project
                   <ArrowRight size={15} />

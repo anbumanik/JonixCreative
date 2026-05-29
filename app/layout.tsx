@@ -1,12 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: 'JonixCreative — Cinematic Video Editing for Creators & Brands',
@@ -22,7 +15,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     siteName: 'JonixCreative',
-  },
+    },
   twitter: {
     card: 'summary_large_image',
     title: 'JonixCreative — Cinematic Video Editing',
@@ -41,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -50,7 +43,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`${inter.className} antialiased bg-[#050508] text-white overflow-x-hidden`}>
+      <body className="antialiased bg-[#050508] text-white overflow-x-hidden">
         {children}
       </body>
     </html>

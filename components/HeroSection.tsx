@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { ChevronDown, Play } from 'lucide-react';
+import { SOCIAL_LINKS } from '@/lib/constants';
 
 const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
   id: i,

@@ -3,16 +3,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Send,
-  Phone,
   Mail,
   MapPin,
+  Clock,
   CheckCircle,
   Loader2,
 } from 'lucide-react';
-import { FaWhatsapp, FaInstagram, FaYoutube, FaLinkedinIn } from 'react-icons/fa';
 import { submitContactForm } from '@/firebase/database';
-import { SOCIAL_LINKS, CONTACT_INFO } from '@/lib/constants';
 import type { ContactFormData } from '@/lib/types';
 
 const PROJECT_TYPES = [
@@ -43,13 +40,36 @@ const ContactSection = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+
+    // Validate Name: Allow only letters and spaces by stripping other characters
+    if (name === 'name') {
+      const sanitized = value.replace(/[^a-zA-Z\s]/g, '');
+      setForm((prev) => ({ ...prev, name: sanitized }));
+      return;
+    }
+
+    // Validate Phone: Allow only numbers, plus sign, spaces, dashes, and parentheses by stripping others
+    if (name === 'phone') {
+      const sanitized = value.replace(/[^0-9+\s\-()]/g, '');
+      setForm((prev) => ({ ...prev, phone: sanitized }));
+      return;
+    }
+
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
     setError('');
+
+    // Confirm @ is in the email address
+    if (!form.email.includes('@')) {
+      setStatus('error');
+      setError('Please enter a valid email address containing @.');
+      return;
+    }
 
     try {
       await submitContactForm(form);
@@ -63,9 +83,9 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-[#07070f] relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-900/10 rounded-full blur-[100px] pointer-events-none" />
+    <section id="contact" className="pt-20 sm:pt-28 pb-24 sm:pb-36 px-6 sm:px-12 bg-[#050508] relative overflow-hidden" style={{ paddingBottom: '120px' }}>
+      {/* Background decoration */}
+      <div className="absolute top-1/4 left-[10%] -translate-x-1/2 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -74,112 +94,86 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <div className="section-divider" />
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mt-4">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mt-4 uppercase">
             Start Your <span className="gradient-text">Project</span>
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-12">
-          {/* Contact info */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          
+          {/* Left Column: Let's Talk Text */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-2 space-y-8"
+            className="lg:col-span-5 space-y-8"
           >
-            {/* Info cards */}
-            <div className="space-y-4">
+            <div className="space-y-3">
+              <p className="text-[11px] font-bold text-blue-500 uppercase tracking-[0.25em]">
+                Let&apos;s Talk
+              </p>
+              <p className="text-slate-400 text-[15px] leading-relaxed max-w-md">
+                Have an idea? Let&apos;s build something great together. I&apos;m currently available for freelance and full-time roles.
+              </p>
+            </div>
+
+            {/* Simple Contact List */}
+            <div className="space-y-5 pt-2">
               {[
-                { Icon: Phone, label: 'Phone', value: CONTACT_INFO.phone, href: `tel:${CONTACT_INFO.phone}`, target: undefined, rel: undefined },
-                { Icon: Mail, label: 'Email', value: CONTACT_INFO.email, href: `mailto:${CONTACT_INFO.email}`, target: undefined, rel: undefined },
-                { Icon: MapPin, label: 'Location', value: CONTACT_INFO.location, href: `https://maps.google.com/?q=${encodeURIComponent(CONTACT_INFO.location)}`, target: '_blank', rel: 'noopener noreferrer' },
-              ].map(({ Icon, label, value, href, target, rel }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={target}
-                  rel={rel}
-                  className="flex items-center gap-4 p-5 rounded-2xl glass border border-white/5 hover:border-blue-500/20 transition-all group card-hover"
-                >
-                  <div className="w-11 h-11 rounded-xl bg-blue-600/15 border border-blue-500/20 flex items-center justify-center group-hover:bg-blue-600/25 transition-colors shrink-0">
-                    <Icon size={18} className="text-blue-400" />
+                { Icon: Mail, value: 'anbumanik22@gmail.com', href: 'mailto:anbumanik22@gmail.com' },
+                { Icon: MapPin, value: 'Natham, Dindigul', href: 'https://maps.google.com/?q=Natham,+Dindigul' },
+                { Icon: Clock, value: 'Responds within 24h', href: null },
+              ].map(({ Icon, value, href }) => {
+                const content = (
+                  <div className="flex items-center gap-4 group">
+                    <div className="w-12 h-12 rounded-full bg-[#101015] border border-white/[0.06] flex items-center justify-center text-blue-500 group-hover:bg-blue-600/10 group-hover:border-blue-500/20 transition-all duration-300">
+                      <Icon size={18} />
+                    </div>
+                    <span className="text-slate-300 font-medium text-[15px] group-hover:text-white transition-colors">
+                      {value}
+                    </span>
                   </div>
-                  <div>
-                    <p className="text-slate-500 text-xs uppercase tracking-wider">{label}</p>
-                    <p className="text-white text-sm font-medium">{value}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
+                );
 
-            {/* Social links */}
-            <div>
-              <p className="text-slate-500 text-xs uppercase tracking-wider mb-4">Follow Us</p>
-              <div className="flex gap-3">
-                {[
-                  { Icon: FaWhatsapp, href: SOCIAL_LINKS.whatsapp, label: 'WhatsApp', color: 'hover:bg-green-500/20 hover:border-green-500/30' },
-                  { Icon: FaInstagram, href: SOCIAL_LINKS.instagram, label: 'Instagram', color: 'hover:bg-pink-500/20 hover:border-pink-500/30' },
-                  { Icon: FaYoutube, href: SOCIAL_LINKS.youtube, label: 'YouTube', color: 'hover:bg-red-500/20 hover:border-red-500/30' },
-                  { Icon: FaLinkedinIn, href: SOCIAL_LINKS.linkedin, label: 'LinkedIn', color: 'hover:bg-blue-500/20 hover:border-blue-500/30' },
-                ].map(({ Icon, href, label, color }) => (
-                  <motion.a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`w-11 h-11 rounded-xl glass border border-white/10 flex items-center justify-center text-slate-400 hover:text-white transition-all ${color}`}
-                  >
-                    <Icon size={18} />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
+                if (href) {
+                  return (
+                    <a key={value} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined} className="block w-fit">
+                      {content}
+                    </a>
+                  );
+                }
 
-            {/* WhatsApp CTA */}
-            <a
-              href={SOCIAL_LINKS.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-5 rounded-2xl bg-green-600/10 border border-green-500/20 hover:bg-green-600/15 hover:border-green-500/30 transition-all group"
-            >
-              <FaWhatsapp size={22} className="text-green-400" />
-              <div>
-                <p className="text-white font-medium text-sm">Chat on WhatsApp</p>
-                <p className="text-slate-500 text-xs">Usually replies within an hour</p>
-              </div>
-            </a>
+                return <div key={value}>{content}</div>;
+              })}
+            </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Right Column: Contact Form Box */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-3"
+            className="lg:col-span-7"
           >
             {status === 'success' ? (
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="h-full flex flex-col items-center justify-center text-center p-12 glass rounded-3xl border border-green-500/20"
+                className="w-full max-w-[580px] lg:ml-auto flex flex-col items-center justify-center text-center p-12 bg-[#101016] border border-blue-500/10 rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
               >
-                <CheckCircle size={64} className="text-green-400 mb-6" />
-                <h3 className="font-display text-3xl text-white mb-3">Message Sent!</h3>
-                <p className="text-slate-400 mb-8 max-w-md">
-                  Thank you for reaching out! We&apos;ve received your message and will get back to
-                  you within 24 hours with your custom quote.
+                <CheckCircle size={64} className="text-blue-500 mb-6" />
+                <h3 className="font-sans font-bold text-3xl text-white mb-3">Message Sent!</h3>
+                <p className="text-slate-400 mb-8 max-w-sm text-sm">
+                  Thank you for reaching out! We&apos;ve received your message and will get back to you within 24 hours with your custom quote.
                 </p>
                 <button
                   onClick={() => setStatus('idle')}
-                  className="btn-outline"
+                  className="px-8 py-3.5 rounded-full border border-white/10 text-white font-medium hover:bg-white/[0.05] hover:border-white/20 transition-all cursor-pointer"
                 >
                   Send Another Message
                 </button>
@@ -187,103 +181,104 @@ const ContactSection = () => {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="glass border border-white/8 rounded-3xl p-8 sm:p-10 flex flex-col gap-6"
+                className="w-full max-w-[500px] lg:ml-auto bg-[#101016] border border-white/15 rounded-[32px] flex flex-col gap-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                style={{ padding: '36px' }}
               >
-                <div className="grid sm:grid-cols-2 gap-6">
-                  {/* Name */}
-                  <div className="flex flex-col">
-                    <label htmlFor="contact-name" className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">
-                      Full Name <span className="text-blue-500/80">*</span>
-                    </label>
-                    <input
-                      id="contact-name"
-                      name="name"
-                      type="text"
-                      required
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder="Your name"
-                      className="w-full px-5 py-4 rounded-xl bg-white/[0.02] border border-white/8 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.05] transition-all duration-300 text-[14px]"
-                    />
-                  </div>
-
-                  {/* Email */}
-                  <div className="flex flex-col">
-                    <label htmlFor="contact-email" className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">
-                      Email Address <span className="text-blue-500/80">*</span>
-                    </label>
-                    <input
-                      id="contact-email"
-                      name="email"
-                      type="email"
-                      required
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="your@email.com"
-                      className="w-full px-5 py-4 rounded-xl bg-white/[0.02] border border-white/8 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.05] transition-all duration-300 text-[14px]"
-                    />
-                  </div>
+                {/* Name */}
+                <div className="flex flex-col gap-3">
+                  <label htmlFor="contact-name" className="block text-[11px] font-bold text-[#8a8a93] uppercase tracking-[0.2em]">
+                    Your Name
+                  </label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    required
+                    value={form.name}
+                    onChange={handleChange}
+                    placeholder="Enter the Name"
+                    pattern="^[a-zA-Z\s]*$"
+                    title="Only letters and spaces are allowed"
+                    className="w-full px-5 py-[18px] rounded-[10px] bg-[#08080b] border border-white/[0.08] text-white placeholder:text-[#55555c] focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px]"
+                  />
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-6">
-                  {/* Phone */}
-                  <div className="flex flex-col">
-                    <label htmlFor="contact-phone" className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">
-                      Phone Number
-                    </label>
-                    <input
-                      id="contact-phone"
-                      name="phone"
-                      type="tel"
-                      value={form.phone}
-                      onChange={handleChange}
-                      placeholder="+1 234 567 8900"
-                      className="w-full px-5 py-4 rounded-xl bg-white/[0.02] border border-white/8 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.05] transition-all duration-300 text-[14px]"
-                    />
-                  </div>
+                {/* Email */}
+                <div className="flex flex-col gap-3">
+                  <label htmlFor="contact-email" className="block text-[11px] font-bold text-[#8a8a93] uppercase tracking-[0.2em]">
+                    Email Address
+                  </label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    required
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="Enter the Email"
+                    className="w-full px-5 py-[18px] rounded-[10px] bg-[#08080b] border border-white/[0.08] text-white placeholder:text-[#55555c] focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px]"
+                  />
+                </div>
 
-                  {/* Project Type */}
-                  <div className="flex flex-col">
-                    <label htmlFor="contact-project" className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">
-                      Project Type <span className="text-blue-500/80">*</span>
-                    </label>
-                    <div className="relative">
-                      <select
-                        id="contact-project"
-                        name="projectType"
-                        required
-                        value={form.projectType}
-                        onChange={handleChange}
-                        className="w-full px-5 py-4 rounded-xl bg-white/[0.02] border border-white/8 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.05] transition-all duration-300 text-[14px] appearance-none cursor-pointer pr-10"
-                      >
-                        <option value="" disabled className="bg-[#0f0f1c] text-slate-500">Select type...</option>
-                        {PROJECT_TYPES.map((t) => (
-                          <option key={t} value={t} className="bg-[#0f0f1c] text-white">{t}</option>
-                        ))}
-                      </select>
-                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </div>
+                {/* Phone */}
+                <div className="flex flex-col gap-3">
+                  <label htmlFor="contact-phone" className="block text-[11px] font-bold text-[#8a8a93] uppercase tracking-[0.2em]">
+                    Phone Number
+                  </label>
+                  <input
+                    id="contact-phone"
+                    name="phone"
+                    type="tel"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="Enter the Phone Number"
+                    pattern="^[0-9+\s\-()]*$"
+                    title="Only numbers and formatting symbols are allowed"
+                    className="w-full px-5 py-[18px] rounded-[10px] bg-[#08080b] border border-white/[0.08] text-white placeholder:text-[#55555c] focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px]"
+                  />
+                </div>
+
+                {/* Project Type */}
+                <div className="flex flex-col gap-3">
+                  <label htmlFor="contact-project" className="block text-[11px] font-bold text-[#8a8a93] uppercase tracking-[0.2em]">
+                    Project Type
+                  </label>
+                  <div className="relative">
+                    <select
+                      id="contact-project"
+                      name="projectType"
+                      required
+                      value={form.projectType}
+                      onChange={handleChange}
+                      className="w-full px-5 py-[18px] rounded-[10px] bg-[#08080b] border border-white/[0.08] text-white focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px] appearance-none cursor-pointer pr-10"
+                    >
+                      <option value="" disabled className="bg-[#101016] text-[#55555c]">Select project type...</option>
+                      {PROJECT_TYPES.map((t) => (
+                        <option key={t} value={t} className="bg-[#101016] text-white">{t}</option>
+                      ))}
+                    </select>
+                    <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-[#55555c]">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                      </svg>
                     </div>
                   </div>
                 </div>
 
                 {/* Message */}
-                <div className="flex flex-col">
-                  <label htmlFor="contact-message" className="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">
-                    Project Details <span className="text-blue-500/80">*</span>
+                <div className="flex flex-col gap-3">
+                  <label htmlFor="contact-message" className="block text-[11px] font-bold text-[#8a8a93] uppercase tracking-[0.2em]">
+                    Message
                   </label>
                   <textarea
                     id="contact-message"
                     name="message"
                     required
-                    rows={5}
+                    rows={4}
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Tell us about your project, timeline, and any specific requirements..."
-                    className="w-full px-5 py-4 rounded-xl bg-white/[0.02] border border-white/8 text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.05] transition-all duration-300 text-[14px] resize-none leading-relaxed"
+                    placeholder="Tell me about your project..."
+                    className="w-full px-5 py-[18px] rounded-[10px] bg-[#08080b] border border-white/[0.08] text-white placeholder:text-[#55555c] focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px] resize-none leading-relaxed"
                   />
                 </div>
 
@@ -293,37 +288,32 @@ const ContactSection = () => {
                   </p>
                 )}
 
-                {/* Buttons */}
-                <div className="flex flex-wrap gap-4">
-                  <button
-                    type="submit"
-                    id="contact-submit"
-                    disabled={status === 'loading'}
-                    className="btn-primary flex-1 sm:flex-none justify-center min-w-[180px]"
-                  >
-                    {status === 'loading' ? (
-                      <>
-                        <Loader2 size={16} className="animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send size={16} />
-                        Get a Quote
-                      </>
-                    )}
-                  </button>
-                  <a
-                    href={`mailto:${CONTACT_INFO.email}`}
-                    className="btn-outline flex-1 sm:flex-none justify-center min-w-[180px] text-center"
-                  >
-                    Contact Us
-                  </a>
-                </div>
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  id="contact-submit"
+                  disabled={status === 'loading'}
+                  className="w-full justify-center py-[16px] px-8 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-bold tracking-wide shadow-[0_8px_30px_rgba(59,130,246,0.3)] hover:shadow-[0_8px_35px_rgba(59,130,246,0.45)] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed hover:-translate-y-0.5 active:scale-[0.98] mt-2"
+                >
+                  {status === 'loading' ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <span className="text-[18px] font-light ml-0.5">→</span>
+                    </>
+                  )}
+                </button>
               </form>
             )}
           </motion.div>
         </div>
+        
+        {/* Spacer to guarantee vertical spacing before footer */}
+        <div className="h-8 sm:h-12" />
       </div>
     </section>
   );

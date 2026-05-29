@@ -13,7 +13,7 @@ import {
   Tv,
   ArrowRight,
 } from 'lucide-react';
-import { SERVICES } from '@/lib/constants';
+import { SERVICES, SOCIAL_LINKS } from '@/lib/constants';
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Film,

@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { STATS } from '@/lib/constants';
+import { STATS, SOCIAL_LINKS } from '@/lib/constants';
 
 const useCountUp = (target: number, inView: boolean, duration = 2000) => {
   const [count, setCount] = useState(0);
