@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import './globals.css';import { Inter, Bebas_Neue } from 'next/font/google';
+import './globals.css';
+import { Inter, Bebas_Neue } from 'next/font/google';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -48,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${bebasNeue.variable}`}>
+    <html lang="en" className={`${inter.variable} ${bebasNeue.variable} overflow-x-hidden`}>
       <body className={`antialiased bg-[#050508] text-white overflow-x-hidden ${inter.className}`}>
         {children}
       </body>
