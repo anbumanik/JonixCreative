@@ -2,9 +2,21 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, Heart } from 'lucide-react';
+import { Heart, Mail, Phone, MapPin } from 'lucide-react';
 import { FaWhatsapp, FaInstagram, FaYoutube, FaLinkedinIn } from 'react-icons/fa';
-import { NAV_LINKS, SOCIAL_LINKS } from '@/lib/constants';
+import { NAV_LINKS, SOCIAL_LINKS, CONTACT_INFO } from '@/lib/constants';
+
+const SOCIAL = [
+  { Icon: FaWhatsapp, href: SOCIAL_LINKS.whatsapp, label: 'WhatsApp' },
+  { Icon: FaInstagram, href: SOCIAL_LINKS.instagram, label: 'Instagram' },
+  { Icon: FaYoutube, href: SOCIAL_LINKS.youtube, label: 'YouTube' },
+  { Icon: FaLinkedinIn, href: SOCIAL_LINKS.linkedin, label: 'LinkedIn' },
+];
+
+const TRENDING = [
+  'Reels Editing', 'YouTube Editing', 'Corporate Videos',
+  'Podcast Editing', 'Motion Graphics', 'Color Grading',
+];
 
 const Footer = () => {
   const scrollTo = (href: string) => {
@@ -12,95 +24,150 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#040407] border-t border-white/5 relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-blue-900/5 rounded-full blur-[80px] pointer-events-none" />
+    <footer className="relative bg-[#04040a] overflow-hidden">
+      {/* Thin top gradient line */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main footer */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center">
-                <span className="text-white font-bold text-base">J</span>
+      {/* Ambient glow */}
+      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-blue-600/[0.04] rounded-full blur-[80px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
+        {/* ── Top section ── */}
+        <div
+          className="pb-10 flex flex-col md:flex-row md:items-start md:justify-between gap-10 border-b border-white/[0.05]"
+          style={{ paddingTop: '42px' }}
+        >
+
+          {/* Brand block */}
+          <div className="max-w-xs space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center shadow-[0_0_18px_rgba(59,130,246,0.3)]">
+                <span className="text-white font-bold text-base leading-none">J</span>
               </div>
-              <span className="font-display text-xl text-white tracking-wider">
+              <span className="font-display text-lg text-white tracking-widest">
                 JONIX<span className="text-blue-400">CREATIVE</span>
               </span>
             </div>
-            <p className="text-slate-500 text-sm leading-relaxed max-w-sm mb-6">
-              Transforming raw footage into cinematic stories. Professional video editing for
-              creators, brands, and businesses worldwide.
+            <p className="text-slate-500 text-[13px] leading-relaxed">
+              Transforming raw footage into cinematic stories — for creators, brands & businesses.
             </p>
-            <div className="flex gap-3">
-              {[
-                { Icon: FaWhatsapp, href: SOCIAL_LINKS.whatsapp, label: 'WhatsApp' },
-                { Icon: FaInstagram, href: SOCIAL_LINKS.instagram, label: 'Instagram' },
-                { Icon: FaYoutube, href: SOCIAL_LINKS.youtube, label: 'YouTube' },
-                { Icon: FaLinkedinIn, href: SOCIAL_LINKS.linkedin, label: 'LinkedIn' },
-              ].map(({ Icon, href, label }) => (
+            {/* Social row */}
+            <div className="flex gap-2 pt-1">
+              {SOCIAL.map(({ Icon, href, label }) => (
                 <motion.a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  className="w-9 h-9 rounded-lg glass border border-white/8 flex items-center justify-center text-slate-500 hover:text-blue-400 hover:border-blue-500/30 transition-all"
+                  whileHover={{ y: -3, scale: 1.08 }}
+                  className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/[0.07] flex items-center justify-center text-slate-500 hover:text-blue-400 hover:border-blue-500/30 hover:bg-blue-500/[0.08] transition-all duration-200"
                 >
-                  <Icon size={16} />
+                  <Icon size={14} />
                 </motion.a>
               ))}
             </div>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-5">Navigation</h4>
-            <ul className="space-y-3">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <button
-                    onClick={() => scrollTo(link.href)}
-                    className="flex items-center gap-2 text-slate-500 text-sm hover:text-blue-400 transition-colors group"
-                  >
-                    <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Links grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:gap-14 pt-2">
 
-          {/* Services */}
-          <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-5">Services</h4>
-            <ul className="space-y-3">
-              {['Reels Editing', 'YouTube Editing', 'Corporate Videos', 'Podcast Editing', 'Motion Graphics', 'Color Grading'].map((s) => (
-                <li key={s}>
-                  <button
-                    onClick={() => scrollTo('#services')}
-                    className="flex items-center gap-2 text-slate-500 text-sm hover:text-blue-400 transition-colors group"
+            {/* Navigation */}
+            <div className="space-y-4">
+              <p className="text-[10px] font-bold text-blue-400 uppercase tracking-[0.2em] pt-2">Navigation</p>
+              <ul className="space-y-2.5">
+                {NAV_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <button
+                      onClick={() => scrollTo(link.href)}
+                      className="text-[13px] text-slate-500 hover:text-white transition-colors duration-200 hover:translate-x-0.5 inline-flex"
+                    >
+                      {link.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Trending */}
+            <div className="space-y-4">
+              <p className="text-[10px] font-bold text-blue-400 uppercase tracking-[0.2em] pt-2">Trending</p>
+              <ul className="space-y-2.5">
+                {TRENDING.map((s) => (
+                  <li key={s}>
+                    <button
+                      onClick={() => scrollTo('#services')}
+                      className="text-[13px] text-slate-500 hover:text-white transition-colors duration-200 text-left"
+                    >
+                      {s}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Connect */}
+            <div className="space-y-4">
+              <p className="text-[10px] font-bold text-blue-400 uppercase tracking-[0.2em] pt-2">Connect</p>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href={`mailto:${CONTACT_INFO.email}`}
+                    className="flex items-center gap-2 text-[13px] text-slate-500 hover:text-white transition-colors duration-200 group"
                   >
-                    <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {s}
-                  </button>
+                    <Mail size={13} className="text-blue-400 shrink-0" />
+                    <span className="break-all">{CONTACT_INFO.email}</span>
+                  </a>
                 </li>
-              ))}
-            </ul>
+                <li>
+                  <a
+                    href={SOCIAL_LINKS.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-[13px] text-slate-500 hover:text-white transition-colors duration-200"
+                  >
+                    <Phone size={13} className="text-green-400 shrink-0" />
+                    <span>{CONTACT_INFO.phone}</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`https://maps.google.com/?q=${encodeURIComponent(CONTACT_INFO.location)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-[13px] text-slate-500 hover:text-white transition-colors duration-200"
+                  >
+                    <MapPin size={13} className="text-red-400 shrink-0" />
+                    <span>{CONTACT_INFO.location}</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="py-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-600 text-xs">
+
+
+        {/* ── Bottom bar ── */}
+        <div className="py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-slate-600 text-[11px]">
             © {new Date().getFullYear()} JonixCreative. All rights reserved.
           </p>
-          <p className="text-slate-600 text-xs flex items-center gap-1">
-            Made with <Heart size={10} className="text-blue-500 fill-blue-500 mx-0.5" /> by JonixCreative
+          <p className="text-slate-600 text-[11px] flex items-center gap-1">
+            Made with <Heart size={9} className="text-blue-500 fill-blue-500 mx-0.5" /> by{' '}
+            <a
+              href="https://portfolioan-xi.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300 transition-colors duration-200"
+            >
+              a7pixels
+            </a>
           </p>
         </div>
+
       </div>
     </footer>
   );

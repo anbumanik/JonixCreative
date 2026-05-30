@@ -8,6 +8,7 @@ import {
   Clock,
   CheckCircle,
   Loader2,
+  Phone,
 } from 'lucide-react';
 import { submitContactForm } from '@/firebase/database';
 import type { ContactFormData } from '@/lib/types';
@@ -83,18 +84,19 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="pt-20 sm:pt-28 pb-24 sm:pb-36 px-6 sm:px-12 bg-[#050508] relative overflow-hidden" style={{ paddingBottom: '120px' }}>
+    <section id="contact" className="pt-20 sm:pt-28 pb-10 sm:pb-14 px-6 sm:px-12 bg-[#050508] relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/4 left-[10%] -translate-x-1/2 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center"
+          style={{ marginBottom: '64px' }}
         >
           <div className="section-divider" />
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mt-4 uppercase">
@@ -102,7 +104,7 @@ const ContactSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <div className="grid md:grid-cols-12 gap-12 md:gap-16 lg:gap-20 items-center">
           
           {/* Left Column: Let's Talk Text */}
           <motion.div
@@ -110,30 +112,31 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-5 space-y-8"
+            className="md:col-span-5 lg:col-span-4 md:col-start-2 lg:col-start-3 space-y-8 flex flex-col md:items-start"
+            style={{ marginTop: '-40px' }}
           >
-            <div className="space-y-3">
-              <p className="text-[11px] font-bold text-blue-500 uppercase tracking-[0.25em]">
+            <div className="space-y-4">
+              <p className="text-[13px] font-bold text-blue-500 uppercase tracking-[0.25em]">
                 Let&apos;s Talk
               </p>
-              <p className="text-slate-400 text-[15px] leading-relaxed max-w-md">
-                Have an idea? Let&apos;s build something great together. I&apos;m currently available for freelance and full-time roles.
+              <p className="text-slate-400 text-lg leading-relaxed max-w-md">
+                Ready to elevate your brand with cinematic visuals? Whether it&apos;s a high-impact commercial or an engaging YouTube video, we&apos;re here to bring your vision to life. Let&apos;s discuss your next big project.
               </p>
             </div>
 
             {/* Simple Contact List */}
-            <div className="space-y-5 pt-2">
+            <div className="space-y-6 pt-4">
               {[
                 { Icon: Mail, value: 'anbumanik22@gmail.com', href: 'mailto:anbumanik22@gmail.com' },
-                { Icon: MapPin, value: 'Natham, Dindigul', href: 'https://maps.google.com/?q=Natham,+Dindigul' },
+                { Icon: MapPin, value: 'Kodairoad, Dindigul, Tamilnadu', href: 'https://maps.google.com/?q=Kodairoad,+Dindigul,+Tamilnadu' },
                 { Icon: Clock, value: 'Responds within 24h', href: null },
               ].map(({ Icon, value, href }) => {
                 const content = (
-                  <div className="flex items-center gap-4 group">
-                    <div className="w-12 h-12 rounded-full bg-[#101015] border border-white/[0.06] flex items-center justify-center text-blue-500 group-hover:bg-blue-600/10 group-hover:border-blue-500/20 transition-all duration-300">
-                      <Icon size={18} />
+                  <div className="flex items-center gap-5 group">
+                    <div className="w-14 h-14 rounded-full bg-[#101015] border border-white/[0.06] flex items-center justify-center text-blue-500 group-hover:bg-blue-600/10 group-hover:border-blue-500/20 transition-all duration-300">
+                      <Icon size={22} />
                     </div>
-                    <span className="text-slate-300 font-medium text-[15px] group-hover:text-white transition-colors">
+                    <span className="text-slate-300 font-medium text-lg group-hover:text-white transition-colors">
                       {value}
                     </span>
                   </div>
@@ -158,13 +161,13 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7"
+            className="md:col-span-6 md:col-start-7 flex justify-end"
           >
             {status === 'success' ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="w-full max-w-[580px] lg:ml-auto flex flex-col items-center justify-center text-center p-12 bg-[#101016] border border-blue-500/10 rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                className="w-full max-w-[440px] md:ml-auto flex flex-col items-center justify-center text-center p-10 bg-[#101016] border border-blue-500/10 rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
               >
                 <CheckCircle size={64} className="text-blue-500 mb-6" />
                 <h3 className="font-sans font-bold text-3xl text-white mb-3">Message Sent!</h3>
@@ -181,8 +184,8 @@ const ContactSection = () => {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="w-full max-w-[500px] lg:ml-auto bg-[#101016] border border-white/15 rounded-[32px] flex flex-col gap-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-                style={{ padding: '36px' }}
+                className="w-full max-w-[440px] md:ml-auto bg-[#101016] border border-white/15 rounded-[28px] flex flex-col gap-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                style={{ padding: '28px' }}
               >
                 {/* Name */}
                 <div className="flex flex-col gap-3">

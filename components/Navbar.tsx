@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight } from 'lucide-react';
-import { NAV_LINKS } from '@/lib/constants';
+import { Menu, X, ArrowRight, Mail, Phone } from 'lucide-react';
+import { FaWhatsapp, FaInstagram, FaYoutube, FaLinkedinIn } from 'react-icons/fa';
+import { NAV_LINKS, CONTACT_INFO, SOCIAL_LINKS } from '@/lib/constants';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,17 +34,47 @@ const Navbar = () => {
 
   return (
     <>
+      {/* ── Top Bar ── */}
+      <div
+        className={`fixed top-0 left-0 right-0 z-[51] transition-all duration-500 ${
+          isScrolled ? 'opacity-0 -translate-y-full pointer-events-none' : 'opacity-100 translate-y-0'
+        }`}
+        style={{ height: '32px' }}
+      >
+        <div className="h-full bg-[#0a0a14]/90 border-b border-white/[0.04] overflow-hidden">
+          <div 
+            className="h-full flex items-center whitespace-nowrap w-max"
+            style={{ animation: 'marquee 30s linear infinite' }}
+          >
+            {Array.from({ length: 12 }).map((_, i) => (
+              <span key={i} className="text-[11px] tracking-[0.3em] uppercase mx-10">
+                <span className="text-slate-600">JONIX</span>
+                <span className="text-blue-500/60">CREATIVE</span>
+                <span className="text-slate-700 mx-4">✦</span>
+                <span className="text-slate-600">Video Editing</span>
+                <span className="text-slate-700 mx-4">✦</span>
+                <span className="text-slate-600">Motion Graphics</span>
+                <span className="text-slate-700 mx-4">✦</span>
+                <span className="text-slate-600">Color Grading</span>
+                <span className="text-slate-700 mx-4">✦</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.25, 0, 0, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-[#06060e]/92 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_2px_50px_rgba(0,0,0,0.7)]'
+            ? 'top-0 bg-[#06060e]/92 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_2px_50px_rgba(0,0,0,0.7)]'
             : 'bg-transparent'
         }`}
+        style={{ top: isScrolled ? '0px' : '32px' }}
       >
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:pl-6 sm:pr-0 lg:pl-8 lg:pr-0">
           <div className="flex items-center justify-between h-[68px] md:h-[78px]">
 
             {/* ── Logo (Left) ── */}
@@ -71,7 +102,7 @@ const Navbar = () => {
             </motion.a>
 
             {/* ── Center Nav Links (Desktop) ── */}
-            <div className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+            <div className="hidden md:flex items-center gap-5 lg:gap-8 absolute left-1/2 -translate-x-1/2">
               {NAV_LINKS.map((link) => {
                 const isActive = activeSection === link.href.replace('#', '');
                 return (
@@ -108,19 +139,19 @@ const Navbar = () => {
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => scrollTo('#contact')}
-                className="hidden lg:flex items-center gap-2 text-sm font-semibold text-white relative overflow-hidden group"
+                className="hidden md:flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-white relative overflow-hidden group lg:ml-8"
                 style={{
                   background: 'linear-gradient(135deg, #1d4ed8, #3b82f6)',
-                  boxShadow: '0 0 25px rgba(59,130,246,0.4)',
-                  padding: '11px 26px',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  boxShadow: '0 0 18px rgba(59,130,246,0.35)',
+                  border: '1.5px solid rgba(255, 255, 255, 0.6)',
                   borderRadius: '9999px',
+                  padding: '9px 20px',
                 }}
               >
                 {/* Shimmer effect */}
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
                 <span className="relative">Start Your Project</span>
-                <ArrowRight size={15} className="relative group-hover:translate-x-0.5 transition-transform duration-200" />
+                <ArrowRight size={13} className="relative group-hover:translate-x-0.5 transition-transform duration-200" />
               </motion.button>
 
               {/* Hamburger (Mobile) */}
@@ -128,7 +159,7 @@ const Navbar = () => {
                 id="mobile-menu-toggle"
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
-                className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] hover:bg-white/10 text-slate-300 hover:text-white transition-all duration-200"
+                className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] hover:bg-white/10 text-slate-300 hover:text-white transition-all duration-200"
               >
                 <AnimatePresence mode="wait" initial={false}>
                   {mobileOpen ? (
@@ -174,14 +205,14 @@ const Navbar = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
               onClick={() => setMobileOpen(false)}
-              className="fixed inset-0 z-40 bg-black/65 backdrop-blur-md lg:hidden"
+              className="fixed inset-0 z-40 bg-black/65 backdrop-blur-md md:hidden"
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 220 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-[280px] flex flex-col lg:hidden"
+              className="fixed top-0 right-0 bottom-0 z-50 w-[280px] flex flex-col md:hidden"
               style={{
                 background: 'rgba(6,6,18,0.98)',
                 backdropFilter: 'blur(30px)',

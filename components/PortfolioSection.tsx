@@ -102,7 +102,8 @@ const PortfolioSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center"
+          style={{ marginBottom: '60px' }}
         >
           <div className="section-divider" />
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mt-4">
@@ -116,7 +117,8 @@ const PortfolioSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-2 mb-12"
+          className="flex flex-wrap justify-center gap-3"
+          style={{ marginBottom: '48px' }}
         >
           {CATEGORIES.map((cat) => (
             <button
@@ -133,7 +135,7 @@ const PortfolioSection = () => {
         {/* Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 justify-items-center w-full"
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((project) => (

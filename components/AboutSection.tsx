@@ -80,7 +80,8 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center"
+          style={{ marginBottom: '60px' }}
         >
           <div className="section-divider" />
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mt-4">
@@ -89,7 +90,7 @@ const AboutSection = () => {
         </motion.div>
 
         {/* Main grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center mb-16">
           {/* Left: Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -123,10 +124,16 @@ const AboutSection = () => {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute top-6 right-6 sm:top-8 sm:-right-4 glass-strong rounded-2xl p-4 border border-blue-500/20 glow-blue-sm z-10"
+                className="absolute top-8 -right-4 sm:-right-8 bg-[#0a0a1a]/90 backdrop-blur-xl rounded-2xl p-5 border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.8)] z-10 flex flex-col items-center justify-center min-w-[110px] overflow-hidden group"
               >
-                <p className="font-display text-3xl text-blue-400">5+</p>
-                <p className="text-slate-400 text-xs">Years</p>
+                {/* Subtle inner gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <p className="font-display text-4xl text-transparent bg-clip-text bg-gradient-to-b from-white to-blue-400 leading-none mb-1">
+                  5+
+                </p>
+                <p className="text-white text-xs font-medium tracking-widest uppercase">Years</p>
+                <p className="text-blue-500/80 text-[9px] font-bold tracking-widest uppercase mt-1">Experience</p>
               </motion.div>
             </div>
           </motion.div>

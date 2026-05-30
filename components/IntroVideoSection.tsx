@@ -30,14 +30,15 @@ const IntroVideoSection = () => {
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full text-center mb-16 flex flex-col items-center"
+          className="w-full text-center flex flex-col items-center"
+          style={{ marginBottom: '60px' }}
         >
           <div className="section-divider" />
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mt-4">
@@ -52,7 +53,7 @@ const IntroVideoSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative w-full max-w-5xl mx-auto mb-20"
+          className="relative w-full max-w-4xl mx-auto mb-20"
         >
           {/* Glow behind video */}
           <div className="absolute inset-0 bg-blue-600/20 rounded-2xl blur-2xl" />
@@ -129,20 +130,21 @@ const IntroVideoSection = () => {
         </motion.div>
 
         {/* Features list - Grid layout */}
-        <div className="w-full max-w-5xl mx-auto flex flex-col items-center">
+        <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="w-full text-center mt-12 mb-16"
+            className="w-full text-center"
+            style={{ marginBottom: '60px', marginTop: '100px' }}
           >
             <h3 className="font-display text-3xl sm:text-4xl text-white">
               What Makes Us <span className="gradient-text">Different</span>
             </h3>
           </motion.div>
 
-          <div className="w-full grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-24">
+          <div className="w-full grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-24">
             {FEATURES.map((feature, i) => (
               <motion.div
                 key={i}
@@ -159,20 +161,18 @@ const IntroVideoSection = () => {
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            className="text-center mt-12"
-          >
-            <button
+          <div className="text-center mt-12 w-full flex justify-center">
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.5 }}
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="btn-primary px-8 py-4 text-lg inline-flex items-center justify-center min-w-[240px]"
             >
               Start Your Project Today
-            </button>
-          </motion.div>
+            </motion.button>
+          </div>
         </div>
       </div>
     </section>

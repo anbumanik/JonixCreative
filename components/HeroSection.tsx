@@ -103,47 +103,47 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-[#050508]">
-        {/* Animated gradient blobs */}
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.15, 0.25, 0.15],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600 rounded-full blur-[120px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.1, 0.2, 0.1],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-700 rounded-full blur-[100px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            x: [0, 30, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
-          className="absolute top-1/2 right-1/3 w-64 h-64 bg-blue-500 rounded-full blur-[130px] opacity-10"
-        />
-      </div>
+      {/* ── Background video ── */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-[0]"
+        style={{ opacity: 0.35 }}
+      >
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-editing-raw-footage-on-computer-4852-large.mp4" type="video/mp4" />
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-city-traffic-at-night-11-large.mp4" type="video/mp4" />
+      </video>
 
-      {/* Particle canvas */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 z-[1]"
-        style={{ opacity: 0.6 }}
+      {/* Dark overlay over video */}
+      <div className="absolute inset-0 bg-[#050508]/70 z-[0]" />
+
+      {/* ── Animated orbs on top of video ── */}
+      <motion.div
+        animate={{ scale: [1, 1.25, 1], opacity: [0.18, 0.28, 0.18], x: [0, 40, 0], y: [0, -30, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute top-[15%] left-[15%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[130px] z-[1]"
+      />
+      <motion.div
+        animate={{ scale: [1.2, 1, 1.2], opacity: [0.1, 0.2, 0.1], x: [0, -50, 0], y: [0, 40, 0] }}
+        transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+        className="absolute bottom-[15%] right-[15%] w-[420px] h-[420px] bg-indigo-700 rounded-full blur-[110px] z-[1]"
+      />
+      <motion.div
+        animate={{ scale: [1, 1.4, 1], opacity: [0.05, 0.12, 0.05], x: [0, -30, 0] }}
+        transition={{ duration: 13, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
+        className="absolute top-[40%] right-[25%] w-[320px] h-[320px] bg-cyan-500 rounded-full blur-[140px] z-[1]"
       />
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050508]/20 to-[#050508] z-[2]" />
+      {/* ── Particle canvas ── */}
+      <canvas ref={canvasRef} className="absolute inset-0 z-[2]" style={{ opacity: 0.5 }} />
+
+      {/* Gradient fade bottom */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050508]/30 via-transparent to-[#050508] z-[4]" />
 
       {/* Hero content */}
-      <div className="relative z-[3] text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-[5] text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main heading */}
         <motion.h1
           custom={0}

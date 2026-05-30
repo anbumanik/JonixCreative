@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 import { useFirebaseData } from '@/hooks/useFirebaseData';
@@ -25,6 +25,9 @@ const TestimonialsSection = () => {
   const testimonials = useFirebaseData<Testimonial[]>('testimonials', FALLBACK_TESTIMONIALS);
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
+  const containerRef = useRef<HTMLElement>(null);
+
+  const clientsRow = ["Google", "Amazon", "Netflix", "Spotify", "Meta", "Apple", "Microsoft", "Adobe", "Nike", "Adidas", "Google", "Amazon", "Netflix", "Spotify"];
 
   const goNext = useCallback(() => {
     setDirection(1);
@@ -52,18 +55,19 @@ const TestimonialsSection = () => {
   const t = testimonials[current];
 
   return (
-    <section id="testimonials" className="section-padding bg-[#050508] relative overflow-hidden">
+    <section id="testimonials" ref={containerRef} className="section-padding bg-[#050508] relative overflow-hidden">
       {/* Background */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-blue-900/8 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="w-full max-w-5xl mx-auto flex flex-col items-center px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto flex flex-col items-center px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full text-center mb-20 flex flex-col items-center"
+          className="w-full text-center flex flex-col items-center"
+          style={{ marginBottom: '60px' }}
         >
           <div className="section-divider" />
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mt-4">
@@ -194,6 +198,30 @@ const TestimonialsSection = () => {
             </div>
           ))}
         </motion.div>
+
+        {/* Trusted By Scroll Marquee */}
+        <div 
+          className="w-full border-t border-white/5 overflow-hidden relative"
+          style={{ marginTop: '80px', paddingTop: '40px' }}
+        >
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050508] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#050508] to-transparent z-10 pointer-events-none" />
+          
+          <h4 className="text-center text-slate-500 uppercase tracking-widest text-xs font-semibold mb-10">Trusted By Innovative Brands</h4>
+
+          <div className="flex w-full overflow-hidden">
+            <div 
+              className="flex gap-10 whitespace-nowrap opacity-40 hover:opacity-70 transition-opacity duration-300 w-max"
+              style={{ animation: 'marquee 40s linear infinite' }}
+            >
+              {[...clientsRow, ...clientsRow, ...clientsRow].map((client, i) => (
+                <span key={i} className="font-display text-4xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-white to-white/20 uppercase tracking-widest mx-4 select-none">
+                  {client}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

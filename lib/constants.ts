@@ -203,14 +203,14 @@ export const STATS = [
 ];
 
 export const SOCIAL_LINKS = {
-  whatsapp: 'https://wa.me/1234567890',
+  whatsapp: 'https://wa.me/917402096762',
   instagram: 'https://instagram.com/jonixcreative',
   youtube: 'https://youtube.com/@jonixcreative',
   linkedin: 'https://linkedin.com/company/jonixcreative',
 };
 
 export const CONTACT_INFO = {
-  phone: '+1 (234) 567-8900',
-  email: 'hello@jonixcreative.com',
-  location: 'Creative Hub, Digital City, CA 90210',
+  phone: '+91 74020 96762',
+  email: 'anbumanik22@gmail.com',
+  location: 'Kodairoad, Dindigul, Tamilnadu',
 };

@@ -42,13 +42,13 @@ const ServiceCard = ({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       whileHover={{ y: -8 }}
-      className="group relative p-6 rounded-2xl glass border border-white/8 hover:border-blue-500/30 transition-all duration-300 overflow-hidden"
+      className="group relative p-6 pb-10 rounded-2xl glass border border-white/8 hover:border-blue-500/30 transition-all duration-300"
     >
       {/* Hover glow background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/5 group-hover:to-blue-400/5 transition-all duration-500 rounded-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/5 group-hover:to-blue-400/5 transition-all duration-500 rounded-2xl overflow-hidden" />
 
       {/* Glow dot */}
-      <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden" />
 
       {/* Icon */}
       <div className="relative mb-5">
@@ -91,7 +91,8 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center"
+          style={{ marginBottom: '60px' }}
         >
           <div className="section-divider" />
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mt-4">
@@ -100,7 +101,7 @@ const ServicesSection = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
           {SERVICES.map((service, i) => (
             <ServiceCard key={service.id} service={service} index={i} />
           ))}
@@ -112,12 +113,13 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-16 p-8 sm:p-12 rounded-3xl glass border border-white/8 text-center relative overflow-hidden"
+          className="p-8 sm:p-12 rounded-3xl glass border border-white/8 text-center relative overflow-hidden"
+          style={{ marginTop: '60px' }}
         >
           {/* Glow */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-3xl pointer-events-none" />
 
-          <h3 className="font-display text-3xl sm:text-4xl text-white mb-4 relative">
+          <h3 className="font-display text-3xl sm:text-4xl text-white mb-4 relative" style={{ paddingTop: '16px' }}>
             Don&apos;t See What You Need?
           </h3>
           <p className="text-slate-400 mb-8 relative max-w-lg mx-auto">
