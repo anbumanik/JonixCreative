@@ -99,7 +99,7 @@ const AboutSection = () => {
             transition={{ duration: 0.8 }}
             className="w-full flex justify-center"
           >
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-md lg:max-w-[480px]">
               <div className="relative rounded-2xl overflow-hidden border border-white/10 aspect-4/5 w-full">
                 <Image
                   src="/images/founder.png"

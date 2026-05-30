@@ -20,9 +20,27 @@
   margin-right: auto;
 }
 
+@media (min-width: 1024px) {
+  .max-w-400 {
+    max-width: 92%;
+  }
+}
+
 @media (min-width: 1280px) {
   .max-w-400 {
-    max-width: 1280px;
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .max-w-400 {
+    max-width: 1366px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .max-w-400 {
+    max-width: 1440px;
   }
 }
 

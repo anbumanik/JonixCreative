@@ -166,7 +166,7 @@ const ContactSection = () => {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="w-full max-w-110 flex flex-col items-center justify-center text-center p-10 bg-[#101016] border border-blue-500/10 rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                className="w-full max-w-[440px] flex flex-col items-center justify-center text-center p-10 bg-[#101016] border border-blue-500/10 rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
               >
                 <CheckCircle size={64} className="text-blue-500 mb-6" />
                 <h3 className="font-sans font-bold text-3xl text-white mb-3">Message Sent!</h3>
@@ -183,7 +183,7 @@ const ContactSection = () => {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="w-full max-w-110 bg-[#101016] border border-white/15 rounded-[28px] flex flex-col gap-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                className="w-full max-w-[440px] bg-[#101016] border border-white/15 rounded-[28px] flex flex-col gap-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
                 style={{ padding: '28px' }}
               >
                 {/* Name */}

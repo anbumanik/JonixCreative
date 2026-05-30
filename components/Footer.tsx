@@ -151,7 +151,7 @@ const Footer = () => {
 
 
         {/* ── Bottom bar ── */}
-        <div className="py-5 flex flex-col sm:flex-row items-center justify-start gap-10 sm:gap-32 md:gap-64 lg:gap-96 xl:gap-[45rem]">
+        <div className="py-5 flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
           <p className="text-slate-600 text-[11px]">
             © {new Date().getFullYear()} JonixCreative. All rights reserved.
           </p>
