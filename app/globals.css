@@ -14,18 +14,15 @@
 }
 
 .max-w-400 {
+  width: 100%;
   max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .max-w-400 {
-    max-width: 92%;
-  }
-}
-
-@media (min-width: 1920px) {
-  .max-w-400 {
-    max-width: 1800px;
+    max-width: 1280px;
   }
 }
 
