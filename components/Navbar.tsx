@@ -74,7 +74,7 @@ const Navbar = () => {
         style={{ top: isScrolled ? '0px' : '32px' }}
       >
         <div className="w-full max-w-400 mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-          <div className="flex items-center justify-between h-17 md:h-19.5">
+          <div className="flex items-center justify-between h-17 md:h-19.5 relative">
 
             {/* ── Logo (Left) ── */}
             <motion.a
@@ -100,43 +100,44 @@ const Navbar = () => {
               </span>
             </motion.a>
 
-            {/* ── Center and Right Side Desktop Nav content ── */}
-            <div className="hidden lg:flex items-center justify-between flex-1 ml-8 xl:ml-12">
-              <div className="flex items-center gap-5 xl:gap-8 mx-auto">
-                {NAV_LINKS.map((link) => {
-                  const isActive = activeSection === link.href.replace('#', '');
-                  return (
-                    <button
-                      key={link.href}
-                      onClick={() => scrollTo(link.href)}
-                      className="relative group flex flex-col items-center gap-1 py-1"
+            {/* ── Center Nav Links (Desktop) ── */}
+            <div className="hidden lg:flex items-center gap-5 xl:gap-8 absolute left-1/2 -translate-x-1/2">
+              {NAV_LINKS.map((link) => {
+                const isActive = activeSection === link.href.replace('#', '');
+                return (
+                  <button
+                    key={link.href}
+                    onClick={() => scrollTo(link.href)}
+                    className="relative group flex flex-col items-center gap-1 py-1"
+                  >
+                    <span
+                      className={`text-sm font-medium tracking-wide transition-all duration-200 ${
+                        isActive
+                          ? 'text-white'
+                          : 'text-slate-400 group-hover:text-white'
+                      }`}
                     >
-                      <span
-                        className={`text-sm font-medium tracking-wide transition-all duration-200 ${
-                          isActive
-                            ? 'text-white'
-                            : 'text-slate-400 group-hover:text-white'
-                        }`}
-                      >
-                        {link.label}
-                      </span>
-                      {/* Animated underline */}
-                      <span
-                        className={`block h-0.5 rounded-full bg-linear-to-r from-blue-500 to-blue-300 transition-all duration-300 ${
-                          isActive ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-60'
-                        }`}
-                      />
-                    </button>
-                  );
-                })}
-              </div>
+                      {link.label}
+                    </span>
+                    {/* Animated underline */}
+                    <span
+                      className={`block h-0.5 rounded-full bg-linear-to-r from-blue-500 to-blue-300 transition-all duration-300 ${
+                        isActive ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-60'
+                      }`}
+                    />
+                  </button>
+                );
+              })}
+            </div>
 
+            {/* ── Right Side: CTA Button + Hamburger ── */}
+            <div className="flex items-center gap-3">
               {/* CTA Button (Desktop) */}
               <motion.button
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => scrollTo('#contact')}
-                className="flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-white relative overflow-hidden group"
+                className="hidden lg:flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-white relative overflow-hidden group"
                 style={{
                   background: 'linear-gradient(135deg, #1d4ed8, #3b82f6)',
                   boxShadow: '0 0 18px rgba(59,130,246,0.35)',
@@ -150,39 +151,39 @@ const Navbar = () => {
                 <span className="relative">Start Your Project</span>
                 <ArrowRight size={13} className="relative group-hover:translate-x-0.5 transition-transform duration-200" />
               </motion.button>
-            </div>
 
-            {/* ── Hamburger (Mobile) ── */}
-            <button
-              id="mobile-menu-toggle"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
-              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 bg-white/6 hover:bg-white/10 text-slate-300 hover:text-white transition-all duration-200 shrink-0"
-            >
-              <AnimatePresence mode="wait" initial={false}>
-                {mobileOpen ? (
-                  <motion.span
-                    key="x"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.18 }}
-                  >
-                    <X size={18} />
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.18 }}
-                  >
-                    <Menu size={18} />
-                  </motion.span>
-                )}
-              </AnimatePresence>
-            </button>
+              {/* Hamburger (Mobile) */}
+              <button
+                id="mobile-menu-toggle"
+                onClick={() => setMobileOpen(!mobileOpen)}
+                aria-label="Toggle menu"
+                className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 bg-white/6 hover:bg-white/10 text-slate-300 hover:text-white transition-all duration-200 shrink-0"
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  {mobileOpen ? (
+                    <motion.span
+                      key="x"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.18 }}
+                    >
+                      <X size={18} />
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="menu"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                      transition={{ duration: 0.18 }}
+                    >
+                      <Menu size={18} />
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </button>
+            </div>
           </div>
         </div>
 
