@@ -28,9 +28,9 @@ const IntroVideoSection = () => {
   return (
     <section id="video" className="section-padding bg-[#050508] relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-150 bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+      <div className="w-full max-w-400 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -64,7 +64,7 @@ const IntroVideoSection = () => {
               onClick={() => setPlaying(true)}
             >
               {/* Thumbnail */}
-              <div className="aspect-video bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center relative">
+              <div className="aspect-video bg-linear-to-br from-slate-900 to-slate-800 flex items-center justify-center relative">
                 {/* Cinematic bars */}
                 <div className="absolute top-0 left-0 right-0 h-10 bg-black/60" />
                 <div className="absolute bottom-0 left-0 right-0 h-10 bg-black/60" />
@@ -85,7 +85,7 @@ const IntroVideoSection = () => {
                   whileTap={{ scale: 0.95 }}
                   className="relative z-10 flex flex-col items-center gap-4"
                 >
-                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center glow-blue shadow-2xl group-hover:shadow-blue-500/60 transition-shadow duration-300">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-linear-to-br from-blue-600 to-blue-400 flex items-center justify-center glow-blue shadow-2xl group-hover:shadow-blue-500/60 transition-shadow duration-300">
                     <Play className="text-white ml-2" size={36} fill="white" />
                   </div>
                   {/* Ripple rings */}
@@ -130,7 +130,7 @@ const IntroVideoSection = () => {
         </motion.div>
 
         {/* Features list - Grid layout */}
-        <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
+        <div className="w-full max-w-400 mx-auto flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@ const IntroVideoSection = () => {
             </h3>
           </motion.div>
 
-          <div className="w-full grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-24">
+          <div className="w-full grid sm:grid-cols-2 md:grid-cols-3 gap-4" style={{ marginBottom: '20px' }}>
             {FEATURES.map((feature, i) => (
               <motion.div
                 key={i}
@@ -161,14 +161,14 @@ const IntroVideoSection = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12 w-full flex justify-center">
+          <div className="text-center w-full flex justify-center" style={{ marginTop: '24px' }}>
             <motion.button
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.5 }}
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary px-8 py-4 text-lg inline-flex items-center justify-center min-w-[240px]"
+              className="btn-primary px-8 py-4 text-lg inline-flex items-center justify-center min-w-60"
             >
               Start Your Project Today
             </motion.button>

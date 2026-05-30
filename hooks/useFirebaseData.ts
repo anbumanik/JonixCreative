@@ -10,7 +10,7 @@ export function useFirebaseData<T>(path: string, fallback: T): T {
   useEffect(() => {
     const dbRef = ref(database, path);
 
-    const unsubscribe = onValue(
+    onValue(
       dbRef,
       (snapshot) => {
         if (snapshot.exists()) {

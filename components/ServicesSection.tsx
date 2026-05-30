@@ -13,7 +13,7 @@ import {
   Tv,
   ArrowRight,
 } from 'lucide-react';
-import { SERVICES, SOCIAL_LINKS } from '@/lib/constants';
+import { SERVICES } from '@/lib/constants';
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Film,
@@ -45,7 +45,7 @@ const ServiceCard = ({
       className="group relative p-6 pb-10 rounded-2xl glass border border-white/8 hover:border-blue-500/30 transition-all duration-300"
     >
       {/* Hover glow background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/5 group-hover:to-blue-400/5 transition-all duration-500 rounded-2xl overflow-hidden" />
+      <div className="absolute inset-0 bg-linear-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/5 group-hover:to-blue-400/5 transition-all duration-500 rounded-2xl overflow-hidden" />
 
       {/* Glow dot */}
       <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden" />
@@ -82,9 +82,9 @@ const ServicesSection = () => {
   return (
     <section id="services" className="section-padding bg-[#07070f] relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-indigo-900/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-100 h-100 bg-indigo-900/10 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full max-w-400 mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -113,26 +113,30 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="p-8 sm:p-12 rounded-3xl glass border border-white/8 text-center relative overflow-hidden"
+          className="px-8 py-10 sm:p-12 rounded-3xl glass border border-white/8 relative flex flex-col lg:flex-row items-center justify-between gap-8"
           style={{ marginTop: '60px' }}
         >
           {/* Glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-3xl pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-r from-blue-600/10 via-transparent to-transparent rounded-3xl pointer-events-none" />
 
-          <h3 className="font-display text-3xl sm:text-4xl text-white mb-4 relative" style={{ paddingTop: '16px' }}>
-            Don&apos;t See What You Need?
-          </h3>
-          <p className="text-slate-400 mb-8 relative max-w-lg mx-auto">
-            We offer custom video editing packages tailored to your unique requirements. Tell us
-            about your project and we&apos;ll create a solution just for you.
-          </p>
-          <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-primary relative"
-          >
-            Get a Custom Quote
-            <ArrowRight size={16} />
-          </button>
+          <div className="relative z-10 w-full lg:w-2/3 text-left">
+            <h3 className="font-display text-3xl sm:text-4xl text-white mb-4">
+              Don&apos;t See What You Need?
+            </h3>
+            <p className="text-slate-400 text-lg leading-relaxed">
+              Every brand has a unique story. We offer completely tailored video editing packages designed to fit your specific vision, style, and platform requirements. Let&apos;s discuss your ideas and build a custom solution just for you.
+            </p>
+          </div>
+          
+          <div className="relative z-10 w-full lg:w-1/3 flex justify-start lg:justify-end">
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="btn-primary"
+            >
+              Get a Custom Quote
+              <ArrowRight size={16} />
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>

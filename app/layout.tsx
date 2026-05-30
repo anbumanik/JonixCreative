@@ -1,5 +1,19 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import './globals.css';import { Inter, Bebas_Neue } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  weight: ['300', '400', '500', '600', '700', '800', '900']
+});
+
+const bebasNeue = Bebas_Neue({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-bebas',
+  weight: '400'
+});
 
 export const metadata: Metadata = {
   title: 'JonixCreative — Cinematic Video Editing for Creators & Brands',
@@ -34,16 +48,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="antialiased bg-[#050508] text-white overflow-x-hidden">
+    <html lang="en" className={`${inter.variable} ${bebasNeue.variable}`}>
+      <body className={`antialiased bg-[#050508] text-white overflow-x-hidden ${inter.className}`}>
         {children}
       </body>
     </html>

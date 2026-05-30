@@ -111,7 +111,7 @@ export default function PortfolioProjectPage({
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
                   whileHover={{ scale: 1.1 }}
-                  className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center glow-blue"
+                  className="w-20 h-20 rounded-full bg-linear-to-br from-blue-600 to-blue-400 flex items-center justify-center glow-blue"
                 >
                   <Play className="text-white ml-1" size={28} fill="white" />
                 </motion.div>

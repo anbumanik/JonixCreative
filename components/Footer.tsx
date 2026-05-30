@@ -26,23 +26,23 @@ const Footer = () => {
   return (
     <footer className="relative bg-[#04040a] overflow-hidden">
       {/* Thin top gradient line */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-blue-500/30 to-transparent" />
 
       {/* Ambient glow */}
-      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-blue-600/[0.04] rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-125 h-50 bg-blue-600/4 rounded-full blur-[80px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="w-full max-w-400 mx-auto px-6 lg:px-8">
 
         {/* ── Top section ── */}
         <div
-          className="pb-10 flex flex-col md:flex-row md:items-start md:justify-between gap-10 border-b border-white/[0.05]"
+          className="pb-10 flex flex-col md:flex-row md:items-start md:justify-start gap-16 lg:gap-32 xl:gap-40 border-b border-white/5"
           style={{ paddingTop: '42px' }}
         >
 
           {/* Brand block */}
           <div className="max-w-xs space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center shadow-[0_0_18px_rgba(59,130,246,0.3)]">
+              <div className="w-9 h-9 rounded-xl bg-linear-to-br from-blue-600 to-blue-400 flex items-center justify-center shadow-[0_0_18px_rgba(59,130,246,0.3)]">
                 <span className="text-white font-bold text-base leading-none">J</span>
               </div>
               <span className="font-display text-lg text-white tracking-widest">
@@ -62,7 +62,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label={label}
                   whileHover={{ y: -3, scale: 1.08 }}
-                  className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/[0.07] flex items-center justify-center text-slate-500 hover:text-blue-400 hover:border-blue-500/30 hover:bg-blue-500/[0.08] transition-all duration-200"
+                  className="w-8 h-8 rounded-lg bg-white/3 border border-white/7 flex items-center justify-center text-slate-500 hover:text-blue-400 hover:border-blue-500/30 hover:bg-blue-500/8 transition-all duration-200"
                 >
                   <Icon size={14} />
                 </motion.a>
@@ -71,7 +71,7 @@ const Footer = () => {
           </div>
 
           {/* Links grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:gap-14 pt-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:gap-16 pt-2">
 
             {/* Navigation */}
             <div className="space-y-4">
@@ -151,7 +151,7 @@ const Footer = () => {
 
 
         {/* ── Bottom bar ── */}
-        <div className="py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div className="py-5 flex flex-col sm:flex-row items-center justify-start gap-10 sm:gap-32 md:gap-64 lg:gap-96 xl:gap-[45rem]">
           <p className="text-slate-600 text-[11px]">
             © {new Date().getFullYear()} JonixCreative. All rights reserved.
           </p>

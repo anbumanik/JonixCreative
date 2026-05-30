@@ -8,7 +8,6 @@ import {
   Clock,
   CheckCircle,
   Loader2,
-  Phone,
 } from 'lucide-react';
 import { submitContactForm } from '@/firebase/database';
 import type { ContactFormData } from '@/lib/types';
@@ -86,9 +85,9 @@ const ContactSection = () => {
   return (
     <section id="contact" className="pt-20 sm:pt-28 pb-10 sm:pb-14 px-6 sm:px-12 bg-[#050508] relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-1/4 left-[10%] -translate-x-1/2 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-[10%] -translate-x-1/2 w-125 h-125 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full max-w-400 mx-auto">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -133,7 +132,7 @@ const ContactSection = () => {
               ].map(({ Icon, value, href }) => {
                 const content = (
                   <div className="flex items-center gap-5 group">
-                    <div className="w-14 h-14 rounded-full bg-[#101015] border border-white/[0.06] flex items-center justify-center text-blue-500 group-hover:bg-blue-600/10 group-hover:border-blue-500/20 transition-all duration-300">
+                    <div className="w-14 h-14 rounded-full bg-[#101015] border border-white/6 flex items-center justify-center text-blue-500 group-hover:bg-blue-600/10 group-hover:border-blue-500/20 transition-all duration-300">
                       <Icon size={22} />
                     </div>
                     <span className="text-slate-300 font-medium text-lg group-hover:text-white transition-colors">
@@ -161,13 +160,13 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="md:col-span-6 md:col-start-7 flex justify-end"
+            className="md:col-span-6 md:col-start-7 flex justify-center lg:justify-start lg:pl-8"
           >
             {status === 'success' ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="w-full max-w-[440px] md:ml-auto flex flex-col items-center justify-center text-center p-10 bg-[#101016] border border-blue-500/10 rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                className="w-full max-w-110 flex flex-col items-center justify-center text-center p-10 bg-[#101016] border border-blue-500/10 rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
               >
                 <CheckCircle size={64} className="text-blue-500 mb-6" />
                 <h3 className="font-sans font-bold text-3xl text-white mb-3">Message Sent!</h3>
@@ -176,7 +175,7 @@ const ContactSection = () => {
                 </p>
                 <button
                   onClick={() => setStatus('idle')}
-                  className="px-8 py-3.5 rounded-full border border-white/10 text-white font-medium hover:bg-white/[0.05] hover:border-white/20 transition-all cursor-pointer"
+                  className="px-8 py-3.5 rounded-full border border-white/10 text-white font-medium hover:bg-white/5 hover:border-white/20 transition-all cursor-pointer"
                 >
                   Send Another Message
                 </button>
@@ -184,7 +183,7 @@ const ContactSection = () => {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="w-full max-w-[440px] md:ml-auto bg-[#101016] border border-white/15 rounded-[28px] flex flex-col gap-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                className="w-full max-w-110 bg-[#101016] border border-white/15 rounded-[28px] flex flex-col gap-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
                 style={{ padding: '28px' }}
               >
                 {/* Name */}
@@ -202,7 +201,7 @@ const ContactSection = () => {
                     placeholder="Enter the Name"
                     pattern="^[a-zA-Z\s]*$"
                     title="Only letters and spaces are allowed"
-                    className="w-full px-5 py-[18px] rounded-[10px] bg-[#08080b] border border-white/[0.08] text-white placeholder:text-[#55555c] focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px]"
+                    className="w-full px-5 py-4.5 rounded-[10px] bg-[#08080b] border border-white/8 text-white placeholder:text-[#55555c] focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px]"
                   />
                 </div>
 
@@ -219,7 +218,7 @@ const ContactSection = () => {
                     value={form.email}
                     onChange={handleChange}
                     placeholder="Enter the Email"
-                    className="w-full px-5 py-[18px] rounded-[10px] bg-[#08080b] border border-white/[0.08] text-white placeholder:text-[#55555c] focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px]"
+                    className="w-full px-5 py-4.5 rounded-[10px] bg-[#08080b] border border-white/8 text-white placeholder:text-[#55555c] focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px]"
                   />
                 </div>
 
@@ -237,7 +236,7 @@ const ContactSection = () => {
                     placeholder="Enter the Phone Number"
                     pattern="^[0-9+\s\-()]*$"
                     title="Only numbers and formatting symbols are allowed"
-                    className="w-full px-5 py-[18px] rounded-[10px] bg-[#08080b] border border-white/[0.08] text-white placeholder:text-[#55555c] focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px]"
+                    className="w-full px-5 py-4.5 rounded-[10px] bg-[#08080b] border border-white/8 text-white placeholder:text-[#55555c] focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px]"
                   />
                 </div>
 
@@ -253,7 +252,7 @@ const ContactSection = () => {
                       required
                       value={form.projectType}
                       onChange={handleChange}
-                      className="w-full px-5 py-[18px] rounded-[10px] bg-[#08080b] border border-white/[0.08] text-white focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px] appearance-none cursor-pointer pr-10"
+                      className="w-full px-5 py-4.5 rounded-[10px] bg-[#08080b] border border-white/8 text-white focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px] appearance-none cursor-pointer pr-10"
                     >
                       <option value="" disabled className="bg-[#101016] text-[#55555c]">Select project type...</option>
                       {PROJECT_TYPES.map((t) => (
@@ -281,7 +280,7 @@ const ContactSection = () => {
                     value={form.message}
                     onChange={handleChange}
                     placeholder="Tell me about your project..."
-                    className="w-full px-5 py-[18px] rounded-[10px] bg-[#08080b] border border-white/[0.08] text-white placeholder:text-[#55555c] focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px] resize-none leading-relaxed"
+                    className="w-full px-5 py-4.5 rounded-[10px] bg-[#08080b] border border-white/8 text-white placeholder:text-[#55555c] focus:outline-none focus:border-blue-500/50 focus:bg-black/40 transition-all duration-300 text-[15px] resize-none leading-relaxed"
                   />
                 </div>
 
@@ -296,7 +295,7 @@ const ContactSection = () => {
                   type="submit"
                   id="contact-submit"
                   disabled={status === 'loading'}
-                  className="w-full justify-center py-[16px] px-8 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-bold tracking-wide shadow-[0_8px_30px_rgba(59,130,246,0.3)] hover:shadow-[0_8px_35px_rgba(59,130,246,0.45)] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed hover:-translate-y-0.5 active:scale-[0.98] mt-2"
+                  className="w-full py-4 px-8 rounded-full bg-linear-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-bold tracking-wide shadow-[0_8px_30px_rgba(59,130,246,0.3)] hover:shadow-[0_8px_35px_rgba(59,130,246,0.45)] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed hover:-translate-y-0.5 active:scale-[0.98] mt-2"
                 >
                   {status === 'loading' ? (
                     <>

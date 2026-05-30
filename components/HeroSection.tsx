@@ -3,16 +3,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { ChevronDown, Play } from 'lucide-react';
-import { SOCIAL_LINKS } from '@/lib/constants';
-
-const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  y: Math.random() * 100,
-  size: Math.random() * 3 + 1,
-  delay: Math.random() * 4,
-  duration: Math.random() * 6 + 6,
-}));
 
 const HeroSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -109,7 +99,7 @@ const HeroSection = () => {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-[0]"
+        className="absolute inset-0 w-full h-full object-cover z-0"
         style={{ opacity: 0.35 }}
       >
         <source src="https://assets.mixkit.co/videos/preview/mixkit-editing-raw-footage-on-computer-4852-large.mp4" type="video/mp4" />
@@ -117,33 +107,33 @@ const HeroSection = () => {
       </video>
 
       {/* Dark overlay over video */}
-      <div className="absolute inset-0 bg-[#050508]/70 z-[0]" />
+      <div className="absolute inset-0 bg-[#050508]/70 z-0" />
 
       {/* ── Animated orbs on top of video ── */}
       <motion.div
         animate={{ scale: [1, 1.25, 1], opacity: [0.18, 0.28, 0.18], x: [0, 40, 0], y: [0, -30, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-[15%] left-[15%] w-[500px] h-[500px] bg-blue-600 rounded-full blur-[130px] z-[1]"
+        className="absolute top-[15%] left-[15%] w-125 h-125 bg-blue-600 rounded-full blur-[130px] z-1"
       />
       <motion.div
         animate={{ scale: [1.2, 1, 1.2], opacity: [0.1, 0.2, 0.1], x: [0, -50, 0], y: [0, 40, 0] }}
         transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="absolute bottom-[15%] right-[15%] w-[420px] h-[420px] bg-indigo-700 rounded-full blur-[110px] z-[1]"
+        className="absolute bottom-[15%] right-[15%] w-105 h-105 bg-indigo-700 rounded-full blur-[110px] z-1"
       />
       <motion.div
         animate={{ scale: [1, 1.4, 1], opacity: [0.05, 0.12, 0.05], x: [0, -30, 0] }}
         transition={{ duration: 13, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
-        className="absolute top-[40%] right-[25%] w-[320px] h-[320px] bg-cyan-500 rounded-full blur-[140px] z-[1]"
+        className="absolute top-[40%] right-[25%] w-[320px] h-80 bg-cyan-500 rounded-full blur-[140px] z-1"
       />
 
       {/* ── Particle canvas ── */}
-      <canvas ref={canvasRef} className="absolute inset-0 z-[2]" style={{ opacity: 0.5 }} />
+      <canvas ref={canvasRef} className="absolute inset-0 z-2" style={{ opacity: 0.5 }} />
 
       {/* Gradient fade bottom */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#050508]/30 via-transparent to-[#050508] z-[4]" />
+      <div className="absolute inset-0 bg-linear-to-b from-[#050508]/30 via-transparent to-[#050508] z-4" />
 
       {/* Hero content */}
-      <div className="relative z-[5] text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-5 text-center w-full max-w-400 mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main heading */}
         <motion.h1
           custom={0}
@@ -214,7 +204,7 @@ const HeroSection = () => {
           opacity: { delay: 2, duration: 0.5 },
           y: { duration: 1.5, repeat: Infinity, ease: 'easeInOut', delay: 2 },
         }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[3] flex flex-col items-center text-slate-500 hover:text-blue-400 transition-colors"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-3 flex flex-col items-center text-slate-500 hover:text-blue-400 transition-colors"
       >
         <ChevronDown size={22} />
       </motion.button>

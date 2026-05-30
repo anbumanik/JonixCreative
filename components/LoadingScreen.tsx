@@ -1,26 +1,25 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
-  const progressRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const timer = setTimeout(onComplete, 2500);
     return () => clearTimeout(timer);
-  }, [onComplete]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050508]"
+      className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-[#050508]"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-600/10 blur-[100px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-blue-600/10 blur-[100px]" />
       </div>
 
       {/* Logo animation */}
@@ -72,12 +71,12 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         transition={{ delay: 0.7 }}
         className="relative z-10 w-48"
       >
-        <div className="h-[2px] bg-white/10 rounded-full overflow-hidden">
+        <div className="h-0.5 bg-white/10 rounded-full overflow-hidden">
           <motion.div
             initial={{ width: '0%' }}
             animate={{ width: '100%' }}
             transition={{ duration: 2, ease: 'easeInOut' }}
-            className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"
+            className="h-full bg-linear-to-r from-blue-600 to-blue-400 rounded-full"
           />
         </div>
       </motion.div>

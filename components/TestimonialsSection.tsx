@@ -57,9 +57,9 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" ref={containerRef} className="section-padding bg-[#050508] relative overflow-hidden">
       {/* Background */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-blue-900/8 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-175 h-100 bg-blue-900/8 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="w-full max-w-7xl mx-auto flex flex-col items-center px-4 sm:px-6 lg:px-8">
+      <div className="max-w-400 mx-auto flex flex-col items-center px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -204,8 +204,8 @@ const TestimonialsSection = () => {
           className="w-full border-t border-white/5 overflow-hidden relative"
           style={{ marginTop: '80px', paddingTop: '40px' }}
         >
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050508] to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#050508] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-[#050508] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-32 bg-linear-to-l from-[#050508] to-transparent z-10 pointer-events-none" />
           
           <h4 className="text-center text-slate-500 uppercase tracking-widest text-xs font-semibold mb-10">Trusted By Innovative Brands</h4>
 
@@ -215,7 +215,7 @@ const TestimonialsSection = () => {
               style={{ animation: 'marquee 40s linear infinite' }}
             >
               {[...clientsRow, ...clientsRow, ...clientsRow].map((client, i) => (
-                <span key={i} className="font-display text-4xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-white to-white/20 uppercase tracking-widest mx-4 select-none">
+                <span key={i} className="font-display text-4xl md:text-5xl text-transparent bg-clip-text bg-linear-to-b from-white to-white/20 uppercase tracking-widest mx-4 select-none">
                   {client}
                 </span>
               ))}

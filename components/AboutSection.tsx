@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { STATS, SOCIAL_LINKS } from '@/lib/constants';
+import { STATS } from '@/lib/constants';
 
 const useCountUp = (target: number, inView: boolean, duration = 2000) => {
   const [count, setCount] = useState(0);
@@ -71,9 +71,9 @@ const AboutSection = () => {
   return (
     <section id="about" className="section-padding relative overflow-hidden bg-[#07070f]" ref={sectionRef}>
       {/* Background decoration */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-125 h-125 bg-blue-900/10 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full max-w-400 mx-auto">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -100,7 +100,7 @@ const AboutSection = () => {
             className="w-full flex justify-center"
           >
             <div className="relative w-full max-w-md">
-              <div className="relative rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] w-full">
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 aspect-4/5 w-full">
                 <Image
                   src="/images/founder.png"
                   alt="JonixCreative Founder"
@@ -109,7 +109,7 @@ const AboutSection = () => {
                   sizes="(max-width: 768px) 100vw, 400px"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#050508] via-transparent to-transparent" />
 
                 {/* Founder badge */}
                 <div className="absolute bottom-6 left-6 right-6">
@@ -127,9 +127,9 @@ const AboutSection = () => {
                 className="absolute top-8 -right-4 sm:-right-8 bg-[#0a0a1a]/90 backdrop-blur-xl rounded-2xl p-5 border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.8)] z-10 flex flex-col items-center justify-center min-w-[110px] overflow-hidden group"
               >
                 {/* Subtle inner gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-br from-blue-500/10 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <p className="font-display text-4xl text-transparent bg-clip-text bg-gradient-to-b from-white to-blue-400 leading-none mb-1">
+                <p className="font-display text-4xl text-transparent bg-clip-text bg-linear-to-b from-white to-blue-400 leading-none mb-1">
                   5+
                 </p>
                 <p className="text-white text-xs font-medium tracking-widest uppercase">Years</p>

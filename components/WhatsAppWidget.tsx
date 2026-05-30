@@ -35,7 +35,7 @@ const WhatsAppWidget = () => {
             
             {/* Speech bubble tail pointing right */}
             <div className="absolute top-1/2 -translate-y-1/2 left-full w-0 h-0 border-y-[6px] border-y-transparent border-l-[6px] border-l-white" />
-            <div className="absolute top-1/2 -translate-y-1/2 left-full w-0 h-0 border-y-[6px] border-y-transparent border-l-[6px] border-l-slate-100 -z-10 translate-x-[1px]" />
+            <div className="absolute top-1/2 -translate-y-1/2 left-full w-0 h-0 border-y-[6px] border-y-transparent border-l-[6px] border-l-slate-100 -z-10 translate-x-px" />
           </motion.a>
         )}
       </AnimatePresence>
@@ -51,7 +51,7 @@ const WhatsAppWidget = () => {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.92 }}
         onMouseEnter={() => setShowTooltip(true)}
-        className="pointer-events-auto w-14 h-14 rounded-full bg-gradient-to-br from-[#1d4ed8] to-[#3b82f6] flex items-center justify-center text-white shadow-[0_8px_30px_rgba(59,130,246,0.35)] hover:shadow-[0_8px_35px_rgba(59,130,246,0.5)] transition-all duration-300 relative group cursor-pointer border border-white/10"
+        className="pointer-events-auto w-14 h-14 rounded-full bg-linear-to-br from-[#1d4ed8] to-[#3b82f6] flex items-center justify-center text-white shadow-[0_8px_30px_rgba(59,130,246,0.35)] hover:shadow-[0_8px_35px_rgba(59,130,246,0.5)] transition-all duration-300 relative group cursor-pointer border border-white/10"
         aria-label="Chat on WhatsApp"
       >
         {/* Pulsing ring background */}

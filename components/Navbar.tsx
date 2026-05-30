@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, Mail, Phone } from 'lucide-react';
-import { FaWhatsapp, FaInstagram, FaYoutube, FaLinkedinIn } from 'react-icons/fa';
-import { NAV_LINKS, CONTACT_INFO, SOCIAL_LINKS } from '@/lib/constants';
+import { Menu, X, ArrowRight } from 'lucide-react';
+import { } from 'react-icons/fa';
+import { NAV_LINKS } from '@/lib/constants';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,12 +36,12 @@ const Navbar = () => {
     <>
       {/* ── Top Bar ── */}
       <div
-        className={`fixed top-0 left-0 right-0 z-[51] transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-51 transition-all duration-500 ${
           isScrolled ? 'opacity-0 -translate-y-full pointer-events-none' : 'opacity-100 translate-y-0'
         }`}
         style={{ height: '32px' }}
       >
-        <div className="h-full bg-[#0a0a14]/90 border-b border-white/[0.04] overflow-hidden">
+        <div className="h-full bg-[#0a0a14]/90 border-b border-white/4 overflow-hidden">
           <div 
             className="h-full flex items-center whitespace-nowrap w-max"
             style={{ animation: 'marquee 30s linear infinite' }}
@@ -69,13 +69,13 @@ const Navbar = () => {
         transition={{ duration: 0.7, ease: [0.25, 0, 0, 1] }}
         className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'top-0 bg-[#06060e]/92 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_2px_50px_rgba(0,0,0,0.7)]'
+            ? 'top-0 bg-[#06060e]/92 backdrop-blur-2xl border-b border-white/6 shadow-[0_2px_50px_rgba(0,0,0,0.7)]'
             : 'bg-transparent'
         }`}
         style={{ top: isScrolled ? '0px' : '32px' }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:pl-6 sm:pr-0 lg:pl-8 lg:pr-0">
-          <div className="flex items-center justify-between h-[68px] md:h-[78px]">
+        <div className="w-full max-w-400 mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="flex items-center justify-between h-17 md:h-19.5">
 
             {/* ── Logo (Left) ── */}
             <motion.a
@@ -86,7 +86,7 @@ const Navbar = () => {
             >
               {/* Glowing icon */}
               <div className="relative w-9 h-9">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 group-hover:from-blue-400 group-hover:to-blue-600 transition-all duration-300" />
+                <div className="absolute inset-0 rounded-xl bg-linear-to-br from-blue-500 to-blue-700 group-hover:from-blue-400 group-hover:to-blue-600 transition-all duration-300" />
                 <div className="absolute inset-0 rounded-xl bg-blue-500 blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
                 <div className="relative flex items-center justify-center w-full h-full">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -95,7 +95,7 @@ const Navbar = () => {
                 </div>
               </div>
               {/* Brand text */}
-              <span className="font-display text-[1.2rem] md:text-[1.3rem] tracking-[0.1em] leading-none">
+              <span className="font-display text-[1.2rem] md:text-[1.3rem] tracking-widest leading-none">
                 <span className="text-white">JONIX</span>
                 <span className="text-blue-400">CREATIVE</span>
               </span>
@@ -122,7 +122,7 @@ const Navbar = () => {
                     </span>
                     {/* Animated underline */}
                     <span
-                      className={`block h-[2px] rounded-full bg-gradient-to-r from-blue-500 to-blue-300 transition-all duration-300 ${
+                      className={`block h-0.5 rounded-full bg-linear-to-r from-blue-500 to-blue-300 transition-all duration-300 ${
                         isActive ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-60'
                       }`}
                     />
@@ -139,7 +139,7 @@ const Navbar = () => {
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => scrollTo('#contact')}
-                className="hidden md:flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-white relative overflow-hidden group lg:ml-8"
+                className="hidden md:flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-white relative overflow-hidden group"
                 style={{
                   background: 'linear-gradient(135deg, #1d4ed8, #3b82f6)',
                   boxShadow: '0 0 18px rgba(59,130,246,0.35)',
@@ -149,7 +149,7 @@ const Navbar = () => {
                 }}
               >
                 {/* Shimmer effect */}
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
+                <span className="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
                 <span className="relative">Start Your Project</span>
                 <ArrowRight size={13} className="relative group-hover:translate-x-0.5 transition-transform duration-200" />
               </motion.button>
@@ -159,7 +159,7 @@ const Navbar = () => {
                 id="mobile-menu-toggle"
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
-                className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] hover:bg-white/10 text-slate-300 hover:text-white transition-all duration-200"
+                className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 bg-white/6 hover:bg-white/10 text-slate-300 hover:text-white transition-all duration-200"
               >
                 <AnimatePresence mode="wait" initial={false}>
                   {mobileOpen ? (
@@ -191,7 +191,7 @@ const Navbar = () => {
 
         {/* Bottom glow accent when scrolled */}
         {isScrolled && (
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/5 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/5 h-px bg-linear-to-r from-transparent via-blue-500/30 to-transparent pointer-events-none" />
         )}
       </motion.nav>
 
@@ -212,7 +212,7 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 220 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-[280px] flex flex-col md:hidden"
+              className="fixed top-0 right-0 bottom-0 z-50 w-70 flex flex-col md:hidden"
               style={{
                 background: 'rgba(6,6,18,0.98)',
                 backdropFilter: 'blur(30px)',
@@ -220,9 +220,9 @@ const Navbar = () => {
               }}
             >
               {/* Header */}
-              <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]">
+              <div className="flex items-center justify-between px-6 py-5 border-b border-white/6">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-lg bg-linear-to-br from-blue-500 to-blue-700 flex items-center justify-center">
                     <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
                       <polygon points="5.5,4.5 12,8 5.5,11.5" fill="white" />
                     </svg>
@@ -253,7 +253,7 @@ const Navbar = () => {
                       className={`flex items-center gap-3 w-full text-left px-4 py-3.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                         isActive
                           ? 'text-white bg-blue-600/15 border border-blue-500/20'
-                          : 'text-slate-400 hover:text-white hover:bg-white/[0.05]'
+                          : 'text-slate-400 hover:text-white hover:bg-white/5'
                       }`}
                     >
                       <span className={`w-1.5 h-1.5 rounded-full shrink-0 transition-colors ${isActive ? 'bg-blue-400' : 'bg-white/15'}`} />
