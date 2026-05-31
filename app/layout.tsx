@@ -51,7 +51,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${bebasNeue.variable} overflow-x-hidden`}>
       <body className={`antialiased bg-[#050508] text-white overflow-x-hidden ${inter.className}`}>
-        {children}
+        <div className="w-full overflow-x-hidden relative min-h-screen flex flex-col justify-between">
+          {children}
+        </div>
       </body>
     </html>
   );

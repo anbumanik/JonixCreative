@@ -28,7 +28,7 @@ const IntroVideoSection = () => {
   return (
     <section id="video" className="section-padding bg-[#050508] relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-150 bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[40vw] h-[40vw] min-w-[20rem] aspect-square bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="w-full max-w-400 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         {/* Section header */}

@@ -57,7 +57,7 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" ref={containerRef} className="section-padding bg-[#050508] relative overflow-hidden">
       {/* Background */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-175 h-100 bg-blue-900/8 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[40vw] h-[25vw] min-w-[20rem] aspect-video bg-blue-900/8 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-400 mx-auto flex flex-col items-center px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -198,10 +198,11 @@ const TestimonialsSection = () => {
             </div>
           ))}
         </motion.div>
+      </div>
 
-        {/* Trusted By Scroll Marquee */}
-        <div 
-          className="w-full border-t border-white/5 overflow-hidden relative"
+      {/* Trusted By Scroll Marquee */}
+      <div 
+        className="w-full border-t border-white/5 overflow-hidden relative"
           style={{ marginTop: '80px', paddingTop: '40px' }}
         >
           <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-[#050508] to-transparent z-10 pointer-events-none" />
@@ -222,7 +223,6 @@ const TestimonialsSection = () => {
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 };

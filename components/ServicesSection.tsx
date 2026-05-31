@@ -82,7 +82,7 @@ const ServicesSection = () => {
   return (
     <section id="services" className="section-padding bg-[#07070f] relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-1/2 right-0 w-100 h-100 bg-indigo-900/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-[30vw] h-[30vw] min-w-[15rem] aspect-square bg-indigo-900/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="w-full max-w-400 mx-auto">
         {/* Header */}
@@ -101,7 +101,7 @@ const ServicesSection = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
           {SERVICES.map((service, i) => (
             <ServiceCard key={service.id} service={service} index={i} />
           ))}
@@ -113,8 +113,8 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="px-8 py-10 sm:p-12 rounded-3xl glass border border-white/8 relative flex flex-col lg:flex-row items-center justify-between gap-8"
-          style={{ marginTop: '60px' }}
+          className="px-12 py-10 sm:px-16 sm:py-12 rounded-3xl glass border border-white/8 relative flex flex-col lg:flex-row items-center justify-between gap-8"
+          style={{ marginTop: '60px', paddingLeft: '40px', paddingRight: '40px' }}
         >
           {/* Glow */}
           <div className="absolute inset-0 bg-linear-to-r from-blue-600/10 via-transparent to-transparent rounded-3xl pointer-events-none" />

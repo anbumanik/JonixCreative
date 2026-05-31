@@ -93,7 +93,7 @@ const PortfolioSection = () => {
   return (
     <section id="portfolio" className="section-padding bg-[#050508] relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-1/2 left-0 w-100 h-100 bg-blue-900/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-[30vw] h-[30vw] min-w-[15rem] aspect-square bg-blue-900/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="w-full max-w-400 mx-auto">
         {/* Header */}

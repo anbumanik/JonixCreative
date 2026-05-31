@@ -113,17 +113,17 @@ const HeroSection = () => {
       <motion.div
         animate={{ scale: [1, 1.25, 1], opacity: [0.18, 0.28, 0.18], x: [0, 40, 0], y: [0, -30, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-[15%] left-[15%] w-125 h-125 bg-blue-600 rounded-full blur-[130px] z-1"
+        className="absolute top-[15%] left-[15%] w-[35vw] h-[35vw] min-w-[18rem] aspect-square bg-blue-600 rounded-full blur-[130px] z-1"
       />
       <motion.div
         animate={{ scale: [1.2, 1, 1.2], opacity: [0.1, 0.2, 0.1], x: [0, -50, 0], y: [0, 40, 0] }}
         transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="absolute bottom-[15%] right-[15%] w-105 h-105 bg-indigo-700 rounded-full blur-[110px] z-1"
+        className="absolute bottom-[15%] right-[15%] w-[30vw] h-[30vw] min-w-[15rem] aspect-square bg-indigo-700 rounded-full blur-[110px] z-1"
       />
       <motion.div
         animate={{ scale: [1, 1.4, 1], opacity: [0.05, 0.12, 0.05], x: [0, -30, 0] }}
         transition={{ duration: 13, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
-        className="absolute top-[40%] right-[25%] w-[320px] h-80 bg-cyan-500 rounded-full blur-[140px] z-1"
+        className="absolute top-[40%] right-[25%] w-[20vw] h-[20vw] min-w-[12rem] aspect-square bg-cyan-500 rounded-full blur-[140px] z-1"
       />
 
       {/* ── Particle canvas ── */}

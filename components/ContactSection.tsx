@@ -85,7 +85,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="pt-20 sm:pt-28 pb-10 sm:pb-14 px-6 sm:px-12 bg-[#050508] relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-1/4 left-[10%] -translate-x-1/2 w-125 h-125 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-[10%] -translate-x-1/2 w-[35vw] h-[35vw] min-w-[18rem] aspect-square bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="w-full max-w-400 mx-auto">
         {/* Section Header */}

@@ -29,7 +29,7 @@ const Footer = () => {
       <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-blue-500/30 to-transparent" />
 
       {/* Ambient glow */}
-      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-125 h-50 bg-blue-600/4 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[35vw] h-[15vw] min-w-[18rem] aspect-video bg-blue-600/4 rounded-full blur-[80px] pointer-events-none" />
 
       <div className="w-full max-w-400 mx-auto px-6 lg:px-8">
 

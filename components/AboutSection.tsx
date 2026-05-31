@@ -71,7 +71,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="section-padding relative overflow-hidden bg-[#07070f]" ref={sectionRef}>
       {/* Background decoration */}
-      <div className="absolute bottom-0 right-0 w-125 h-125 bg-blue-900/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[35vw] h-[35vw] min-w-[18rem] aspect-square bg-blue-900/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="w-full max-w-400 mx-auto">
         {/* Section header */}
@@ -147,10 +147,10 @@ const AboutSection = () => {
             className="space-y-6"
           >
             <div>
-              <h3 className="font-display text-3xl sm:text-4xl text-white mb-4">
+              <h3 className="font-display text-3xl sm:text-4xl text-white" style={{ marginBottom: '24px' }}>
                 Our <span className="gradient-text">Story</span>
               </h3>
-              <p className="text-slate-400 leading-relaxed mb-4">
+              <p className="text-slate-400 leading-relaxed" style={{ marginBottom: '24px' }}>
                 JonixCreative was founded with a single mission: to bring cinematic storytelling
                 to creators, brands, and businesses of all sizes. What started as a passion
                 project in a small home studio has grown into a full-scale creative production house.
