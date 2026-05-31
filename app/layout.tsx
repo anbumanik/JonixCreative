@@ -1,20 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Inter, Bebas_Neue } from 'next/font/google';
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-  weight: ['300', '400', '500', '600', '700', '800', '900']
-});
-
-const bebasNeue = Bebas_Neue({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-bebas',
-  weight: '400'
-});
 
 export const metadata: Metadata = {
   title: 'JonixCreative — Cinematic Video Editing for Creators & Brands',
@@ -49,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${bebasNeue.variable} overflow-x-hidden`}>
-      <body className={`antialiased bg-[#050508] text-white overflow-x-hidden ${inter.className}`}>
+    <html lang="en" className="overflow-x-hidden">
+      <body className="antialiased bg-[#050508] text-white overflow-x-hidden font-inter">
         <div className="w-full overflow-x-hidden relative min-h-screen flex flex-col justify-between">
           {children}
         </div>
