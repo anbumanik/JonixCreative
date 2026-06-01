@@ -5,7 +5,13 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { STATS } from '@/lib/constants';
 
-const TOOLS = [
+type Tool = {
+  label: string;
+  logo: string;
+  bg?: string;
+};
+
+const TOOLS: Tool[] = [
   {
     label: 'Premiere Pro',
     logo: 'https://img.icons8.com/color/512/adobe-premiere-pro--v1.png',
