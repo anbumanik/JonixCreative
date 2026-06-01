@@ -13,6 +13,7 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
+import FAQSection from '@/components/FAQSection';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -33,6 +34,7 @@ export default function Home() {
             <PortfolioSection />
             <ServicesSection />
             <TestimonialsSection />
+            <FAQSection />
             <ContactSection />
           </main>
           <Footer />

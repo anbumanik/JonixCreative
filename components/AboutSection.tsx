@@ -5,6 +5,30 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { STATS } from '@/lib/constants';
 
+const TOOLS = [
+  {
+    label: 'Premiere Pro',
+    logo: 'https://img.icons8.com/color/512/adobe-premiere-pro--v1.png',
+  },
+  {
+    label: 'After Effects',
+    logo: 'https://img.icons8.com/color/512/adobe-after-effects--v1.png',
+  },
+  {
+    label: 'DaVinci Resolve',
+    logo: 'https://img.icons8.com/color/512/davinci-resolve.png',
+  },
+  {
+    label: 'Adobe Audition',
+    logo: 'https://img.icons8.com/color/512/adobe-audition--v1.png',
+  },
+  {
+    label: 'Photoshop',
+    logo: 'https://img.icons8.com/color/512/adobe-photoshop--v1.png',
+  },
+];
+
+
 const useCountUp = (target: number, inView: boolean, duration = 2000) => {
   const [count, setCount] = useState(0);
 
@@ -103,10 +127,11 @@ const AboutSection = () => {
               <div className="relative rounded-2xl overflow-hidden border border-white/10 aspect-4/5 w-full">
                 <Image
                   src="/images/founder.png"
-                  alt="JonixCreative Founder"
+                  alt="Jonix Kumar — Founder and Creative Director of JonixCreative, a professional video editing studio based in Dindigul, Tamil Nadu, India"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 400px"
+                  priority
                 />
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-linear-to-t from-[#050508] via-transparent to-transparent" />
@@ -115,7 +140,7 @@ const AboutSection = () => {
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="glass rounded-xl p-4 border border-white/10">
                     <p className="text-white font-semibold">Jonix Kumar</p>
-                    <p className="text-blue-400 text-sm">Founder & Creative Director</p>
+                    <p className="text-blue-400 text-sm">Founder &amp; Creative Director</p>
                   </div>
                 </div>
               </div>
@@ -126,9 +151,7 @@ const AboutSection = () => {
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                 className="absolute top-8 -right-4 sm:-right-8 bg-[#0a0a1a]/90 backdrop-blur-xl rounded-2xl p-5 border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.8)] z-10 flex flex-col items-center justify-center min-w-[110px] overflow-hidden group"
               >
-                {/* Subtle inner gradient */}
                 <div className="absolute inset-0 bg-linear-to-br from-blue-500/10 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-                
                 <p className="font-display text-4xl text-transparent bg-clip-text bg-linear-to-b from-white to-blue-400 leading-none mb-1">
                   5+
                 </p>
@@ -172,7 +195,7 @@ const AboutSection = () => {
                 },
                 {
                   label: 'Vision',
-                  text: 'To be the world\'s most trusted creative video studio, known for cinematic quality at every budget.',
+                  text: "To be the world's most trusted creative video studio, known for cinematic quality at every budget.",
                   icon: '🚀',
                 },
               ].map((item) => (
@@ -208,6 +231,49 @@ const AboutSection = () => {
             <StatCard key={stat.label} stat={stat} inView={inView} />
           ))}
         </motion.div>
+
+        {/* ── Tools We Use marquee ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          style={{ marginTop: '40px' }}
+        >
+          <p 
+            className="text-center text-[10px] font-bold text-blue-400 uppercase tracking-[0.25em]"
+            style={{ marginBottom: '20px' }}
+          >
+            Tools We Use
+          </p>
+
+          <div className="relative overflow-hidden">
+            {/* Fade left edge */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-linear-to-r from-[#07070f] to-transparent z-10 pointer-events-none" />
+            {/* Fade right edge */}
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-linear-to-l from-[#07070f] to-transparent z-10 pointer-events-none" />
+
+            <div className="flex animate-marquee gap-4 w-max">
+              {[...TOOLS, ...TOOLS].map(({ logo, label, bg }, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 px-5 py-3 rounded-xl glass border border-white/6 hover:border-white/20 transition-all duration-300 group cursor-default shrink-0"
+                >
+                  <div 
+                    className="shrink-0 group-hover:scale-110 transition-transform duration-300 w-7 h-7 flex items-center justify-center rounded-md overflow-hidden"
+                    style={bg ? { backgroundColor: bg, padding: '4px' } : {}}
+                  >
+                    <img src={logo} alt={label} className="w-full h-full object-contain" loading="lazy" />
+                  </div>
+                  <span className="text-slate-400 text-sm font-medium group-hover:text-white transition-colors duration-300 whitespace-nowrap">
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

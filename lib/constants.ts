@@ -187,12 +187,52 @@ export const SERVICES = [
   },
 ];
 
+export const FAQ_ITEMS = [
+  {
+    id: 'faq-1',
+    question: 'What video editing services does JonixCreative offer?',
+    answer:
+      'JonixCreative offers a comprehensive range of video editing services including Instagram Reels & TikTok editing, YouTube long-form video editing, corporate brand films, podcast audio/video editing, motion graphics & lower thirds, cinematic color grading with DaVinci Resolve, YouTube Shorts, and high-impact commercial ads for TV and digital platforms.',
+  },
+  {
+    id: 'faq-2',
+    question: 'How long does it take to edit a video?',
+    answer:
+      'Turnaround time depends on the type and length of the project. Short-form content like Instagram Reels or YouTube Shorts typically takes 24–48 hours. Long-form YouTube videos or corporate films take 3–5 business days. Rush delivery is available on request. We always confirm timelines upfront before starting any project.',
+  },
+  {
+    id: 'faq-3',
+    question: 'What is the pricing for your video editing services?',
+    answer:
+      'Our pricing is project-based and depends on the type of edit, video length, and complexity. We offer flexible packages for individual creators, small businesses, and enterprises. Contact us through the form or WhatsApp for a custom quote tailored to your exact requirements — no hidden fees.',
+  },
+  {
+    id: 'faq-4',
+    question: 'Do you offer revisions? How many revision rounds are included?',
+    answer:
+      'Yes — every project includes at least two rounds of free revisions to ensure you are 100% satisfied. Additional revisions beyond that are available at a minimal cost. We work closely with you throughout the process, so major revisions are rare. Your satisfaction is our priority.',
+  },
+  {
+    id: 'faq-5',
+    question: 'Do you work with clients outside India?',
+    answer:
+      'Yes! JonixCreative works with clients worldwide. We have successfully delivered projects for creators and brands across the US, UK, UAE, Australia, and Southeast Asia. All communication and file delivery is handled online, making international collaboration smooth and efficient.',
+  },
+  {
+    id: 'faq-6',
+    question: 'How do I get started with JonixCreative?',
+    answer:
+      'Getting started is simple. Fill out the contact form on our website, message us on WhatsApp, or email us directly. Share a brief about your project, preferred style references, and your deadline. We will respond within a few hours with a custom quote and a clear project plan.',
+  },
+];
+
 export const NAV_LINKS = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'Services', href: '#services' },
   { label: 'Testimonials', href: '#testimonials' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ];
 

@@ -155,7 +155,7 @@ const Footer = () => {
           <p className="text-slate-600 text-[11px]">
             © {new Date().getFullYear()} JonixCreative. All rights reserved.
           </p>
-          <p className="text-slate-600 text-[11px] flex items-center gap-1">
+          <p className="text-slate-600 text-[11px] flex items-center gap-1" style={{ marginRight: '80px' }}>
             Made with <Heart size={9} className="text-blue-500 fill-blue-500 mx-0.5" /> by{' '}
             <a
               href="https://portfolioan-xi.vercel.app/"
