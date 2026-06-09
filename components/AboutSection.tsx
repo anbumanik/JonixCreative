@@ -178,7 +178,7 @@ const AboutSection = () => {
               </motion.div>
 
               {/* Stats Block aligned to image width */}
-              <div className="w-full mt-4">
+              <div className="w-full mt-8" style={{ marginTop: '2rem' }}>
                 {STATS.map((stat) => (
                   <StatCard key={stat.label} stat={stat} inView={inView} />
                 ))}
@@ -206,32 +206,43 @@ const AboutSection = () => {
               </div>
 
               <div className="relative text-slate-400 leading-relaxed text-sm sm:text-base transition-all duration-300">
-                <div className="space-y-4 text-justify">
-                  <p>
-                    With <span className="text-white font-medium drop-shadow-md">5+ years of industry experience</span> and a dedicated team of skilled editors, Jonix Creative delivers high-impact video content that captivates audiences, strengthens brands, and drives real results.
-                  </p>
-                  <p>
-                    We specialize in <span className="text-white font-medium drop-shadow-md">Reels and YouTube content</span> — the most powerful formats in today&apos;s digital landscape. From the first frame to the final cut, every project we touch is handled with precision, creativity, and purpose.
-                  </p>
-                  <p>
-                    Our team works with industry-leading tools — <span className="text-white font-medium drop-shadow-md">Adobe Premiere Pro, After Effects, and DaVinci Resolve</span> — to ensure every deliverable meets the highest professional standard.
-                  </p>
-                  <p>
-                    We have worked with brands, content creators, and business owners across industries — helping them cut through the noise, grow their audience, and build a visual identity that is impossible to ignore. No matter the scale of the project, we bring the same energy, dedication, and standard of excellence to every single frame.
-                  </p>
-                </div>
+                <ul className="text-justify" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <li className="flex items-start gap-3">
+                    <span className="text-blue-400 mt-0.5 shrink-0 text-lg">✦</span>
+                    <p>
+                      With <span className="text-white font-medium drop-shadow-md">5+ years of industry experience</span> and a dedicated team of skilled editors, Jonix Creative delivers high-impact video content that captivates audiences, strengthens brands, and drives real results.
+                    </p>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-blue-400 mt-0.5 shrink-0 text-lg">✦</span>
+                    <p>
+                      We specialize in <span className="text-white font-medium drop-shadow-md">Reels and YouTube content</span> — the most powerful formats in today&apos;s digital landscape. From the first frame to the final cut, every project we touch is handled with precision, creativity, and purpose.
+                    </p>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-blue-400 mt-0.5 shrink-0 text-lg">✦</span>
+                    <p>
+                      Our team works with <span className="text-white font-medium drop-shadow-md">industry-leading tools</span> — Adobe Premiere Pro, After Effects, and DaVinci Resolve — to ensure every deliverable meets the highest professional standard. We help brands and creators cut through the noise and build a visual identity that is impossible to ignore.
+                    </p>
+                  </li>
+                </ul>
               </div>
             </div>
 
             {/* Mission Callout */}
-            <div className="p-5 rounded-xl glass border border-blue-500/20 bg-blue-950/10 hover:border-blue-500/30 transition-all card-hover mt-6">
+            <div className="p-5 rounded-xl glass border border-blue-500/20 bg-blue-950/10 hover:border-blue-500/30 transition-all card-hover" style={{ marginTop: '3rem' }}>
               <div className="flex items-start gap-4">
                 <span className="text-2xl shrink-0 mt-1">🎯</span>
                 <div>
-                  <h4 className="text-white font-semibold mb-1 text-base sm:text-lg">Our Mission</h4>
-                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                    At Jonix Creative, your vision is not just our brief — <span className="text-blue-400 font-medium">it is our mission</span>.
-                  </p>
+                  <h4 className="text-white font-semibold mb-3 text-base sm:text-lg">Our Mission</h4>
+                  <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                    <p>
+                      At Jonix Creative, our mission is to transform raw ideas into powerful visual stories that captivate, connect, and convert. We are committed to delivering premium video content — crafted with precision, fueled by creativity, and driven by a relentless pursuit of excellence.
+                    </p>
+                    <p>
+                      We exist to serve the brands ready to stand out, the creators ready to scale, and the businesses ready to be seen. Through world-class editing, cinematic storytelling, and a deeply collaborative approach, we don't just meet our clients' expectations — we exceed them, every single time.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

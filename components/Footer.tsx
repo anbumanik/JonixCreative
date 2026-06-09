@@ -14,8 +14,8 @@ const SOCIAL = [
 ];
 
 const TRENDING = [
-  'Reels Editing', 'YouTube Editing', 'Corporate Videos',
-  'Podcast Editing', 'Motion Graphics', 'Color Grading',
+  'Instagram Reels Editing', 'YouTube Video Editing',
+  'Corporate Video Editing', 'Montages',
 ];
 
 const Footer = () => {
@@ -31,7 +31,7 @@ const Footer = () => {
       {/* Ambient glow */}
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[35vw] h-[15vw] min-w-[18rem] aspect-video bg-blue-600/4 rounded-full blur-[80px] pointer-events-none" />
 
-      <div className="w-full max-w-400 mx-auto px-6 lg:px-8">
+      <div className="w-full max-w-400 mx-auto" style={{ paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
 
         {/* ── Top section ── */}
         <div

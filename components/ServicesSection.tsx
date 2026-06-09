@@ -42,7 +42,8 @@ const ServiceCard = ({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       whileHover={{ y: -8 }}
-      className="group relative p-6 pb-10 rounded-2xl glass border border-white/8 hover:border-blue-500/30 transition-all duration-300"
+      className="group relative pr-7 py-7 pb-11 rounded-2xl glass border border-white/8 hover:border-blue-500/30 transition-all duration-300"
+      style={{ paddingLeft: '2.25rem' }}
     >
       {/* Hover glow background */}
       <div className="absolute inset-0 bg-linear-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/5 group-hover:to-blue-400/5 transition-all duration-500 rounded-2xl overflow-hidden" />
@@ -84,7 +85,7 @@ const ServicesSection = () => {
       {/* Background decoration */}
       <div className="absolute top-1/2 right-0 w-[30vw] h-[30vw] min-w-[15rem] aspect-square bg-indigo-900/10 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="w-full max-w-400 mx-auto">
+      <div className="w-full max-w-400 mx-auto px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

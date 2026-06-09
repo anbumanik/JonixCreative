@@ -93,21 +93,8 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* ── Background video ── */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        style={{ opacity: 0.35 }}
-      >
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-editing-raw-footage-on-computer-4852-large.mp4" type="video/mp4" />
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-city-traffic-at-night-11-large.mp4" type="video/mp4" />
-      </video>
 
-      {/* Dark overlay over video */}
-      <div className="absolute inset-0 bg-[#050508]/70 z-0" />
+
 
       {/* ── Animated orbs on top of video ── */}
       <motion.div

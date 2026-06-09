@@ -107,7 +107,7 @@ const PortfolioSection = () => {
         >
           <div className="section-divider" />
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mt-4">
-            Featured <span className="gradient-text">Portfolio</span>
+            Recent <span className="gradient-text">Works</span>
           </h2>
         </motion.div>
 
