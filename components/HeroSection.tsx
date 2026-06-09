@@ -142,11 +142,9 @@ const HeroSection = () => {
           variants={textVariants}
           className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[6.5rem] text-white leading-[0.95] mb-10"
         >
-          Transforming Raw
+          Turning Vision
           <br />
-          <span className="gradient-text">Footage Into</span>
-          <br />
-          Cinematic Stories
+          <span className="gradient-text">Into Reality</span>
         </motion.h1>
 
         {/* CTA Buttons */}
@@ -174,25 +172,6 @@ const HeroSection = () => {
           </button>
         </motion.div>
 
-        {/* Floating stats */}
-        <motion.div
-          custom={2}
-          initial="hidden"
-          animate="visible"
-          variants={textVariants}
-          className="mt-16 flex flex-wrap justify-center gap-10 sm:gap-16"
-        >
-          {[
-            { val: '500+', label: 'Projects' },
-            { val: '200+', label: 'Clients' },
-            { val: '5+', label: 'Years' },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="font-display text-3xl sm:text-4xl text-blue-400 text-glow">{stat.val}</p>
-              <p className="text-slate-500 text-sm mt-1 uppercase tracking-wider">{stat.label}</p>
-            </div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Scroll indicator — icon only, no text */}

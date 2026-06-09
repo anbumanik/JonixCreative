@@ -32,6 +32,22 @@ const TOOLS: Tool[] = [
     label: 'Photoshop',
     logo: 'https://img.icons8.com/color/512/adobe-photoshop--v1.png',
   },
+  {
+    label: 'ChatGPT',
+    logo: 'https://img.icons8.com/color/512/chatgpt.png',
+  },
+  {
+    label: 'Gemini',
+    logo: '/images/gemini.png',
+  },
+  {
+    label: 'Google Flow',
+    logo: 'https://img.icons8.com/color/512/google-logo.png',
+  },
+  {
+    label: 'Pinterest',
+    logo: 'https://img.icons8.com/color/512/pinterest--v1.png',
+  },
 ];
 
 
@@ -115,7 +131,7 @@ const AboutSection = () => {
         >
           <div className="section-divider" />
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mt-4">
-            About <span className="gradient-text">JonixCreative</span>
+            About <span className="gradient-text">Jonix Creative</span>
           </h2>
         </motion.div>
 
@@ -133,7 +149,7 @@ const AboutSection = () => {
               <div className="relative rounded-2xl overflow-hidden border border-white/10 aspect-4/5 w-full">
                 <Image
                   src="/images/founder.png"
-                  alt="Jonix Kumar — Founder and Creative Director of JonixCreative, a professional video editing studio based in Dindigul, Tamil Nadu, India"
+                  alt="D. Joan Paul Kirubai — Founder and Creative Director of Jonix Creative, a professional video editing studio"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 400px"
@@ -145,7 +161,7 @@ const AboutSection = () => {
                 {/* Founder badge */}
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="glass rounded-xl p-4 border border-white/10">
-                    <p className="text-white font-semibold">Jonix Kumar</p>
+                    <p className="text-white font-semibold">D. Joan Paul Kirubai</p>
                     <p className="text-blue-400 text-sm">Founder &amp; Creative Director</p>
                   </div>
                 </div>
@@ -176,52 +192,34 @@ const AboutSection = () => {
             className="space-y-6"
           >
             <div>
-              <h3 className="font-display text-3xl sm:text-4xl text-white" style={{ marginBottom: '24px' }}>
-                Our <span className="gradient-text">Story</span>
-              </h3>
-              <p className="text-slate-400 leading-relaxed" style={{ marginBottom: '24px' }}>
-                JonixCreative was founded with a single mission: to bring cinematic storytelling
-                to creators, brands, and businesses of all sizes. What started as a passion
-                project in a small home studio has grown into a full-scale creative production house.
+              <p className="text-slate-300 text-lg sm:text-xl leading-relaxed">
+                <span className="text-white font-semibold">Jonix Creative</span> is a professional video editing studio founded by <span className="text-blue-400 font-semibold">D. Joan Paul Kirubai</span> — built on one unwavering belief:
               </p>
-              <p className="text-slate-400 leading-relaxed">
-                We&apos;ve worked with hundreds of clients — from solo content creators growing their
-                audience to Fortune 500 companies launching global campaigns. Every project gets
-                the same level of dedication, creativity, and technical excellence.
-              </p>
+              
+              <div className="relative border-l-4 border-blue-500 pl-6 my-6 italic text-xl sm:text-2xl font-display text-white bg-blue-500/5 py-4 rounded-r-xl glow-blue-sm">
+                &ldquo;Turning Vision Into Reality.&rdquo;
+              </div>
+
+              <div className="relative text-slate-400 leading-relaxed text-sm sm:text-base p-6 rounded-2xl border border-white/5 bg-white/[0.02] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.04]">
+                <p className="text-justify">
+                  With <span className="text-white font-medium drop-shadow-md">5+ years of industry experience</span> and a dedicated team of skilled editors, Jonix Creative delivers high-impact video content that captivates audiences, strengthens brands, and drives real results. We specialize in <span className="text-white font-medium drop-shadow-md">Reels and YouTube content</span> — the most powerful formats in today&apos;s digital landscape. From the first frame to the final cut, every project we touch is handled with precision, creativity, and purpose. Our team works with industry-leading tools — <span className="text-white font-medium drop-shadow-md">Adobe Premiere Pro, After Effects, and DaVinci Resolve</span> — to ensure every deliverable meets the highest professional standard. We have worked with brands, content creators, and business owners across industries — helping them cut through the noise, grow their audience, and build a visual identity that is impossible to ignore. No matter the scale of the project, we bring the same energy, dedication, and standard of excellence to every single frame.
+                </p>
+              </div>
             </div>
 
-            {/* Mission & Vision */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              {[
-                {
-                  label: 'Mission',
-                  text: 'To transform raw footage into compelling stories that connect, inspire, and convert.',
-                  icon: '🎯',
-                },
-                {
-                  label: 'Vision',
-                  text: "To be the world's most trusted creative video studio, known for cinematic quality at every budget.",
-                  icon: '🚀',
-                },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="p-5 rounded-xl glass border border-white/5 hover:border-blue-500/20 transition-all card-hover"
-                >
-                  <span className="text-2xl mb-3 block">{item.icon}</span>
-                  <h4 className="text-white font-semibold mb-2">{item.label}</h4>
-                  <p className="text-slate-400 text-sm leading-relaxed">{item.text}</p>
+            {/* Mission Callout */}
+            <div className="p-5 rounded-xl glass border border-blue-500/20 bg-blue-950/10 hover:border-blue-500/30 transition-all card-hover mt-6">
+              <div className="flex items-start gap-4">
+                <span className="text-2xl shrink-0 mt-1">🎯</span>
+                <div>
+                  <h4 className="text-white font-semibold mb-1 text-base sm:text-lg">Our Mission</h4>
+                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    At Jonix Creative, your vision is not just our brief — <span className="text-blue-400 font-medium">it is our mission</span>.
+                  </p>
                 </div>
-              ))}
+              </div>
             </div>
 
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary"
-            >
-              Work With Us
-            </button>
           </motion.div>
         </div>
 
@@ -231,7 +229,7 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto"
         >
           {STATS.map((stat) => (
             <StatCard key={stat.label} stat={stat} inView={inView} />

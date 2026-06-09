@@ -5,12 +5,12 @@ import { motion, useInView, type Variants } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 
 const FEATURES = [
-  { text: 'Cinematic quality on every project' },
+  { text: 'A dedicated team of professional editors' },
+  { text: 'Creative story telling that converts' },
+  { text: 'Expertise in platform-optimized content for Reels & YouTube' },
   { text: 'Professional color grading & correction' },
-  { text: 'Fast 48–72 hour delivery' },
-  { text: 'Unlimited revisions until you love it' },
-  { text: 'Creative storytelling that converts' },
-  { text: 'All formats: 16:9, 9:16, 1:1' },
+  { text: 'Consistent quality' },
+  { text: 'Ontime delivery' },
 ];
 
 const fadeInUp: Variants = {

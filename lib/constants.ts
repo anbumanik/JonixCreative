@@ -133,96 +133,80 @@ export const SERVICES = [
     id: 'reels',
     title: 'Instagram Reels Editing',
     description:
-      'Captivating short-form content optimized for maximum reach and engagement on Instagram and TikTok.',
+      'High-energy, scroll-stopping short-form content crafted for maximum reach, engagement, and virality on Instagram and TikTok. We edit Reels that don\'t just get views — they get results.',
     icon: 'Film',
   },
   {
     id: 'youtube',
     title: 'YouTube Video Editing',
     description:
-      'Professional long-form YouTube content with chapters, B-roll, color grading, and SEO-optimized thumbnails.',
+      'Professional long-form YouTube content with seamless cuts, dynamic B-roll, cinematic color grading, and engaging pacing — built to grow your channel and keep viewers watching till the end.',
     icon: 'Youtube',
   },
   {
     id: 'corporate',
     title: 'Corporate Video Editing',
     description:
-      'Polished corporate films, brand stories, and internal communications that reflect your company\'s professionalism.',
+      'Polished, professional corporate films, brand stories, and business presentations that reflect the credibility, vision, and professionalism of your company — leaving a powerful impression on every viewer.',
     icon: 'Briefcase',
   },
   {
-    id: 'podcast',
-    title: 'Podcast Editing',
+    id: 'montages',
+    title: 'Montages',
     description:
-      'Clean audio editing, noise removal, intro/outro integration, and video podcast production for all platforms.',
-    icon: 'Mic',
-  },
-  {
-    id: 'motion',
-    title: 'Motion Graphics',
-    description:
-      'Stunning animated graphics, lower thirds, intros, and kinetic typography that elevate your brand identity.',
+      'Beautifully crafted montages that bring your best moments to life — whether it\'s a brand highlight reel, event recap, or personal story, we turn your footage into an emotionally compelling visual journey.',
     icon: 'Sparkles',
-  },
-  {
-    id: 'color',
-    title: 'Color Grading',
-    description:
-      'Cinematic color grading and color correction using DaVinci Resolve to give your footage a premium look and feel.',
-    icon: 'Palette',
-  },
-  {
-    id: 'shorts',
-    title: 'Shorts Editing',
-    description:
-      'YouTube Shorts and vertical video editing optimized for algorithm performance and viewer retention.',
-    icon: 'Zap',
-  },
-  {
-    id: 'commercial',
-    title: 'Commercial Ads Editing',
-    description:
-      'High-impact commercial advertisements for TV, digital platforms, and social media that drive conversions.',
-    icon: 'Tv',
   },
 ];
 
 export const FAQ_ITEMS = [
   {
     id: 'faq-1',
-    question: 'What video editing services does JonixCreative offer?',
+    question: 'What video editing services does Jonix Creative offer?',
     answer:
-      'JonixCreative offers a comprehensive range of video editing services including Instagram Reels & TikTok editing, YouTube long-form video editing, corporate brand films, podcast audio/video editing, motion graphics & lower thirds, cinematic color grading with DaVinci Resolve, YouTube Shorts, and high-impact commercial ads for TV and digital platforms.',
+      'Jonix Creative offers a comprehensive range of video editing services including Instagram Reels Editing, YouTube Video Editing, Corporate Video Editing, Podcast Editing, Montages, and fully Captioned & Subtitle Editing — all crafted with precision and creativity to bring your vision to life.',
   },
   {
     id: 'faq-2',
     question: 'How long does it take to edit a video?',
     answer:
-      'Turnaround time depends on the type and length of the project. Short-form content like Instagram Reels or YouTube Shorts typically takes 24–48 hours. Long-form YouTube videos or corporate films take 3–5 business days. Rush delivery is available on request. We always confirm timelines upfront before starting any project.',
+      'We pride ourselves on fast, reliable delivery. Most projects are completed within 24 hours. For larger or more complex projects, the timeline may vary — but one thing we never compromise on is your deadline. We always deliver on time, every time.',
   },
   {
     id: 'faq-3',
     question: 'What is the pricing for your video editing services?',
     answer:
-      'Our pricing is project-based and depends on the type of edit, video length, and complexity. We offer flexible packages for individual creators, small businesses, and enterprises. Contact us through the form or WhatsApp for a custom quote tailored to your exact requirements — no hidden fees.',
+      "Our pricing is flexible and tailored to the scope of each project. We offer reasonable, value-packed packages designed to suit every budget — from individual creators to growing businesses. Once you explore our packages, we're confident you'll find them worth every penny.",
   },
   {
     id: 'faq-4',
     question: 'Do you offer revisions? How many revision rounds are included?',
     answer:
-      'Yes — every project includes at least two rounds of free revisions to ensure you are 100% satisfied. Additional revisions beyond that are available at a minimal cost. We work closely with you throughout the process, so major revisions are rare. Your satisfaction is our priority.',
+      "Absolutely. We offer revisions with every project — because your satisfaction is our priority. At Jonix Creative, we work smart and edit right so that most clients are fully satisfied within minimal revision rounds. We don't stop until you love the result.",
   },
   {
     id: 'faq-5',
     question: 'Do you work with clients outside India?',
     answer:
-      'Yes! JonixCreative works with clients worldwide. We have successfully delivered projects for creators and brands across the US, UK, UAE, Australia, and Southeast Asia. All communication and file delivery is handled online, making international collaboration smooth and efficient.',
+      'Yes! Jonix Creative proudly works with clients across the globe. No matter where you are in the world, we are ready to bring your vision to life with the same dedication and quality we deliver to every client.',
   },
   {
     id: 'faq-6',
-    question: 'How do I get started with JonixCreative?',
+    question: 'How do I get started with Jonix Creative?',
     answer:
-      'Getting started is simple. Fill out the contact form on our website, message us on WhatsApp, or email us directly. Share a brief about your project, preferred style references, and your deadline. We will respond within a few hours with a custom quote and a clear project plan.',
+      "Getting started is simple! Just reach out to us on WhatsApp, share your project details, and we'll take it from there. Our team will guide you through the process smoothly — from your first message to your final delivered video.",
+  },
+  {
+    id: 'faq-7',
+    question: 'Why should I choose Jonix Creative over other editors?',
+    answer:
+      "Because at Jonix Creative, you don't just get an editor — you get a dedicated creative team that treats your project as their own. With 5+ years of experience, fast turnaround, minimal revisions, global reach, and a passion for storytelling — we don't just edit videos, we elevate them.",
+  },
+  {
+    id: 'faq-8',
+    question: 'How do I send my footage to Jonix Creative?',
+    answer:
+      'You can share your raw footage easily via Google Drive, WeTransfer.',
   },
 ];
 
@@ -238,7 +222,6 @@ export const NAV_LINKS = [
 
 export const STATS = [
   { value: 500, label: 'Projects Completed', suffix: '+' },
-  { value: 200, label: 'Happy Clients', suffix: '+' },
   { value: 5, label: 'Years Experience', suffix: '+' },
 ];
 

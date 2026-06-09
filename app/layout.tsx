@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   description:
     'Professional video editing services for creators, brands, and businesses. Instagram Reels, YouTube, Corporate Videos, Podcast Editing, Motion Graphics, Color Grading and more. Based in Dindigul, Tamil Nadu, India — serving clients worldwide.',
   keywords:
-    'video editing service, cinematic video editing, instagram reels editing, youtube video editor, corporate video production, podcast editing, motion graphics, color grading DaVinci Resolve, JonixCreative, Jonix Kumar, video editor India, freelance video editor',
+    'video editing service, cinematic video editing, instagram reels editing, youtube video editor, corporate video production, podcast editing, motion graphics, color grading DaVinci Resolve, JonixCreative, D. Joan Paul Kirubai, video editor India, freelance video editor',
   authors: [{ name: 'JonixCreative' }],
   openGraph: {
     title: 'JonixCreative — Cinematic Video Editing',
     description:
-      'Transforming raw footage into cinematic stories. Professional video editing for creators, brands, and businesses worldwide.',
+      'Turning vision into reality. Professional video editing for creators, brands, and businesses worldwide.',
     type: 'website',
     locale: 'en_US',
     siteName: 'JonixCreative',
@@ -35,10 +35,10 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'What video editing services does JonixCreative offer?',
+      name: 'What video editing services does Jonix Creative offer?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'JonixCreative offers Instagram Reels & TikTok editing, YouTube video editing, corporate brand films, podcast editing, motion graphics, cinematic color grading, YouTube Shorts, and commercial ad editing.',
+        text: 'Jonix Creative offers a comprehensive range of video editing services including Instagram Reels Editing, YouTube Video Editing, Corporate Video Editing, Podcast Editing, Montages, and fully Captioned & Subtitle Editing — all crafted with precision and creativity to bring your vision to life.',
       },
     },
     {
@@ -46,7 +46,7 @@ const faqSchema = {
       name: 'How long does it take to edit a video?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Short-form content like Instagram Reels takes 24–48 hours. Long-form YouTube videos or corporate films take 3–5 business days. Rush delivery is available on request.',
+        text: 'We pride ourselves on fast, reliable delivery. Most projects are completed within 24 hours. For larger or more complex projects, the timeline may vary — but one thing we never compromise on is your deadline. We always deliver on time, every time.',
       },
     },
     {
@@ -54,23 +54,15 @@ const faqSchema = {
       name: 'What is the pricing for your video editing services?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Pricing is project-based depending on edit type, video length, and complexity. Contact us for a custom quote — no hidden fees.',
+        text: "Our pricing is flexible and tailored to the scope of each project. We offer reasonable, value-packed packages designed to suit every budget — from individual creators to growing businesses. Once you explore our packages, we're confident you'll find them worth every penny.",
       },
     },
     {
       '@type': 'Question',
-      name: 'What software do you use for video editing?',
+      name: 'Do you offer revisions? How many revision rounds are included?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We use Adobe Premiere Pro, After Effects, DaVinci Resolve, Adobe Audition, and Photoshop for professional-quality deliverables.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you offer revisions?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes — every project includes at least two rounds of free revisions to ensure you are 100% satisfied.',
+        text: "Absolutely. We offer revisions with every project — because your satisfaction is our priority. At Jonix Creative, we work smart and edit right so that most clients are fully satisfied within minimal revision rounds. We don't stop until you love the result.",
       },
     },
     {
@@ -78,15 +70,31 @@ const faqSchema = {
       name: 'Do you work with clients outside India?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes! JonixCreative works with clients worldwide across the US, UK, UAE, Australia, and Southeast Asia. All collaboration is handled online.',
+        text: 'Yes! Jonix Creative proudly works with clients across the globe. No matter where you are in the world, we are ready to bring your vision to life with the same dedication and quality we deliver to every client.',
       },
     },
     {
       '@type': 'Question',
-      name: 'How do I get started with JonixCreative?',
+      name: 'How do I get started with Jonix Creative?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Fill out the contact form, message us on WhatsApp, or email us. Share your project brief and deadline — we will respond within hours with a custom quote.',
+        text: "Getting started is simple! Just reach out to us on WhatsApp, share your project details, and we'll take it from there. Our team will guide you through the process smoothly — from your first message to your final delivered video.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Why should I choose Jonix Creative over other editors?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Because at Jonix Creative, you don't just get an editor — you get a dedicated creative team that treats your project as their own. With 5+ years of experience, fast turnaround, minimal revisions, global reach, and a passion for storytelling — we don't just edit videos, we elevate them.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I send my footage to Jonix Creative?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'You can share your raw footage easily via Google Drive, WeTransfer.',
       },
     },
   ],

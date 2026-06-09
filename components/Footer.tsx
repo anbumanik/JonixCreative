@@ -50,7 +50,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-slate-500 text-[13px] leading-relaxed">
-              Transforming raw footage into cinematic stories — for creators, brands & businesses.
+              Turning vision into reality — for creators, brands & businesses.
             </p>
             {/* Social row */}
             <div className="flex gap-2 pt-1">
