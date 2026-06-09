@@ -28,16 +28,7 @@ const IntroVideoSection = () => {
 
   useEffect(() => {
     if (isInView && videoRef.current) {
-      const playPromise = videoRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // If browser blocks unmuted autoplay, mute and try again so it at least autoplays
-          if (videoRef.current) {
-            videoRef.current.muted = true;
-            videoRef.current.play();
-          }
-        });
-      }
+      videoRef.current.play().catch((err) => console.log(err));
     } else if (!isInView && videoRef.current) {
       videoRef.current.pause();
     }
