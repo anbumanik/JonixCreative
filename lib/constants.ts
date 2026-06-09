@@ -222,7 +222,6 @@ export const NAV_LINKS = [
 
 export const STATS = [
   { value: 500, label: 'Projects Completed', suffix: '+' },
-  { value: 5, label: 'Years Experience', suffix: '+' },
 ];
 
 export const SOCIAL_LINKS = {

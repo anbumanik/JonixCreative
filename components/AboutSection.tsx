@@ -176,6 +176,13 @@ const AboutSection = () => {
                 <p className="text-white text-xs font-medium tracking-widest uppercase">Years</p>
                 <p className="text-blue-500/80 text-[9px] font-bold tracking-widest uppercase mt-1">Experience</p>
               </motion.div>
+
+              {/* Stats Block aligned to image width */}
+              <div className="w-full mt-4">
+                {STATS.map((stat) => (
+                  <StatCard key={stat.label} stat={stat} inView={inView} />
+                ))}
+              </div>
             </div>
           </motion.div>
 
@@ -193,15 +200,26 @@ const AboutSection = () => {
               </p>
               
               <div className="my-6">
-                <p className="text-xl sm:text-2xl font-serif font-medium tracking-wide text-white">
+                <p className="text-xl sm:text-2xl font-bold tracking-wide text-white">
                   &ldquo;Turning Vision Into Reality.&rdquo;
                 </p>
               </div>
 
               <div className="relative text-slate-400 leading-relaxed text-sm sm:text-base transition-all duration-300">
-                <p className="text-justify">
-                  With <span className="text-white font-medium drop-shadow-md">5+ years of industry experience</span> and a dedicated team of skilled editors, Jonix Creative delivers high-impact video content that captivates audiences, strengthens brands, and drives real results. We specialize in <span className="text-white font-medium drop-shadow-md">Reels and YouTube content</span> — the most powerful formats in today&apos;s digital landscape. From the first frame to the final cut, every project we touch is handled with precision, creativity, and purpose. Our team works with industry-leading tools — <span className="text-white font-medium drop-shadow-md">Adobe Premiere Pro, After Effects, and DaVinci Resolve</span> — to ensure every deliverable meets the highest professional standard. We have worked with brands, content creators, and business owners across industries — helping them cut through the noise, grow their audience, and build a visual identity that is impossible to ignore. No matter the scale of the project, we bring the same energy, dedication, and standard of excellence to every single frame.
-                </p>
+                <div className="space-y-4 text-justify">
+                  <p>
+                    With <span className="text-white font-medium drop-shadow-md">5+ years of industry experience</span> and a dedicated team of skilled editors, Jonix Creative delivers high-impact video content that captivates audiences, strengthens brands, and drives real results.
+                  </p>
+                  <p>
+                    We specialize in <span className="text-white font-medium drop-shadow-md">Reels and YouTube content</span> — the most powerful formats in today&apos;s digital landscape. From the first frame to the final cut, every project we touch is handled with precision, creativity, and purpose.
+                  </p>
+                  <p>
+                    Our team works with industry-leading tools — <span className="text-white font-medium drop-shadow-md">Adobe Premiere Pro, After Effects, and DaVinci Resolve</span> — to ensure every deliverable meets the highest professional standard.
+                  </p>
+                  <p>
+                    We have worked with brands, content creators, and business owners across industries — helping them cut through the noise, grow their audience, and build a visual identity that is impossible to ignore. No matter the scale of the project, we bring the same energy, dedication, and standard of excellence to every single frame.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -220,19 +238,6 @@ const AboutSection = () => {
 
           </motion.div>
         </div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto"
-        >
-          {STATS.map((stat) => (
-            <StatCard key={stat.label} stat={stat} inView={inView} />
-          ))}
-        </motion.div>
 
         {/* ── Tools We Use marquee ── */}
         <motion.div
