@@ -15,13 +15,8 @@ import type { ContactFormData } from '@/lib/types';
 const PROJECT_TYPES = [
   'Instagram Reels Editing',
   'YouTube Video Editing',
-  'Corporate Video',
-  'Podcast Editing',
-  'Motion Graphics',
-  'Color Grading',
-  'Shorts Editing',
-  'Commercial Ads',
-  'Other',
+  'Corporate Video Editing',
+  'Montages',
 ];
 
 const initialForm: ContactFormData = {

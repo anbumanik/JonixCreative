@@ -140,7 +140,7 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible"
           variants={textVariants}
-          className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[6.5rem] text-white leading-[0.95] mb-10"
+          className="font-display text-6xl sm:text-8xl md:text-9xl lg:text-[7.5rem] text-white leading-[0.95] mb-10 tracking-tight"
         >
           Turning Vision
           <br />

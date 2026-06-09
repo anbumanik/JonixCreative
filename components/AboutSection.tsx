@@ -25,10 +25,6 @@ const TOOLS: Tool[] = [
     logo: 'https://img.icons8.com/color/512/davinci-resolve.png',
   },
   {
-    label: 'Adobe Audition',
-    logo: 'https://img.icons8.com/color/512/adobe-audition--v1.png',
-  },
-  {
     label: 'Photoshop',
     logo: 'https://img.icons8.com/color/512/adobe-photoshop--v1.png',
   },
@@ -136,16 +132,16 @@ const AboutSection = () => {
         </motion.div>
 
         {/* Main grid */}
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center mb-16">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center mb-16">
           {/* Left: Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="w-full flex justify-center"
+            className="w-full lg:w-auto flex justify-center shrink-0"
           >
-            <div className="relative w-full max-w-md lg:max-w-[480px]">
+            <div className="relative w-full max-w-md lg:w-[480px]">
               <div className="relative rounded-2xl overflow-hidden border border-white/10 aspect-4/5 w-full">
                 <Image
                   src="/images/founder.png"
@@ -189,18 +185,20 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="space-y-6 w-full lg:flex-1"
           >
             <div>
               <p className="text-slate-300 text-lg sm:text-xl leading-relaxed">
                 <span className="text-white font-semibold">Jonix Creative</span> is a professional video editing studio founded by <span className="text-blue-400 font-semibold">D. Joan Paul Kirubai</span> — built on one unwavering belief:
               </p>
               
-              <div className="relative border-l-4 border-blue-500 pl-6 my-6 italic text-xl sm:text-2xl font-display text-white bg-blue-500/5 py-4 rounded-r-xl glow-blue-sm">
-                &ldquo;Turning Vision Into Reality.&rdquo;
+              <div className="my-6">
+                <p className="text-xl sm:text-2xl font-serif font-medium tracking-wide text-white">
+                  &ldquo;Turning Vision Into Reality.&rdquo;
+                </p>
               </div>
 
-              <div className="relative text-slate-400 leading-relaxed text-sm sm:text-base p-6 rounded-2xl border border-white/5 bg-white/[0.02] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.04]">
+              <div className="relative text-slate-400 leading-relaxed text-sm sm:text-base transition-all duration-300">
                 <p className="text-justify">
                   With <span className="text-white font-medium drop-shadow-md">5+ years of industry experience</span> and a dedicated team of skilled editors, Jonix Creative delivers high-impact video content that captivates audiences, strengthens brands, and drives real results. We specialize in <span className="text-white font-medium drop-shadow-md">Reels and YouTube content</span> — the most powerful formats in today&apos;s digital landscape. From the first frame to the final cut, every project we touch is handled with precision, creativity, and purpose. Our team works with industry-leading tools — <span className="text-white font-medium drop-shadow-md">Adobe Premiere Pro, After Effects, and DaVinci Resolve</span> — to ensure every deliverable meets the highest professional standard. We have worked with brands, content creators, and business owners across industries — helping them cut through the noise, grow their audience, and build a visual identity that is impossible to ignore. No matter the scale of the project, we bring the same energy, dedication, and standard of excellence to every single frame.
                 </p>
