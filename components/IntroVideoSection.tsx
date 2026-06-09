@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
-import { motion, type Variants } from 'framer-motion';
-import { Play, X, CheckCircle } from 'lucide-react';
+import React, { useRef, useEffect } from 'react';
+import { motion, useInView, type Variants } from 'framer-motion';
+import { CheckCircle } from 'lucide-react';
 
 const FEATURES = [
   { text: 'Cinematic quality on every project' },
@@ -23,7 +23,25 @@ const fadeInUp: Variants = {
 };
 
 const IntroVideoSection = () => {
-  const [playing, setPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isInView = useInView(videoRef, { once: false, amount: 0.5 });
+
+  useEffect(() => {
+    if (isInView && videoRef.current) {
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // If browser blocks unmuted autoplay, mute and try again so it at least autoplays
+          if (videoRef.current) {
+            videoRef.current.muted = true;
+            videoRef.current.play();
+          }
+        });
+      }
+    } else if (!isInView && videoRef.current) {
+      videoRef.current.pause();
+    }
+  }, [isInView]);
 
   return (
     <section id="video" className="section-padding bg-[#050508] relative overflow-hidden">
@@ -58,75 +76,19 @@ const IntroVideoSection = () => {
           {/* Glow behind video */}
           <div className="absolute inset-0 bg-blue-600/20 rounded-2xl blur-2xl" />
 
-          {!playing ? (
-            <div
-              className="relative rounded-2xl overflow-hidden cursor-pointer group border border-white/10"
-              onClick={() => setPlaying(true)}
-            >
-              {/* Thumbnail */}
-              <div className="aspect-video bg-linear-to-br from-slate-900 to-slate-800 flex items-center justify-center relative">
-                {/* Cinematic bars */}
-                <div className="absolute top-0 left-0 right-0 h-10 bg-black/60" />
-                <div className="absolute bottom-0 left-0 right-0 h-10 bg-black/60" />
-
-                {/* Background pattern */}
-                <div className="absolute inset-0 opacity-20"
-                  style={{
-                    backgroundImage: 'radial-gradient(circle at 25% 25%, #3b82f6 0%, transparent 50%), radial-gradient(circle at 75% 75%, #6366f1 0%, transparent 50%)'
-                  }}
-                />
-
-                {/* Film frame decoration */}
-                <div className="absolute inset-4 border border-white/10 rounded-lg" />
-
-                {/* Play button */}
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative z-10 flex flex-col items-center gap-4"
-                >
-                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-linear-to-br from-blue-600 to-blue-400 flex items-center justify-center glow-blue shadow-2xl group-hover:shadow-blue-500/60 transition-shadow duration-300">
-                    <Play className="text-white ml-2" size={36} fill="white" />
-                  </div>
-                  {/* Ripple rings */}
-                  <motion.div
-                    animate={{ scale: [1, 1.5, 2], opacity: [0.5, 0.2, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-blue-400"
-                  />
-                  <motion.div
-                    animate={{ scale: [1, 1.8, 2.5], opacity: [0.4, 0.15, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                    className="absolute w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-blue-400"
-                  />
-                  <p className="text-white font-medium text-lg tracking-wide mt-2">Watch Our Story</p>
-                </motion.div>
-
-                {/* Duration badge */}
-                <div className="absolute bottom-14 right-6 glass px-3 py-1.5 rounded-md text-sm text-white font-medium">
-                  3:45
-                </div>
-              </div>
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/20">
+            <div className="aspect-video bg-black flex items-center justify-center">
+              <video
+                ref={videoRef}
+                src="https://ik.imagekit.io/g1241mexj/WhatsApp%20Video%202026-06-09%20at%2012.23.34%20AM.mp4"
+                className="w-full h-full max-h-full"
+                loop
+                playsInline
+                controls
+                title="JonixCreative Introduction"
+              />
             </div>
-          ) : (
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/20">
-              <div className="aspect-video bg-black">
-                <iframe
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="JonixCreative Introduction"
-                />
-              </div>
-              <button
-                onClick={() => setPlaying(false)}
-                className="absolute top-4 right-4 p-2.5 glass rounded-full text-white hover:bg-white/20 transition-colors z-10"
-              >
-                <X size={20} />
-              </button>
-            </div>
-          )}
+          </div>
         </motion.div>
 
         {/* Features list - Grid layout */}
