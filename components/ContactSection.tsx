@@ -126,7 +126,7 @@ const ContactSection = () => {
             {/* Simple Contact List */}
             <div className="space-y-6 pt-4">
               {[
-                { Icon: Mail, value: 'anbumanik22@gmail.com', href: 'mailto:anbumanik22@gmail.com' },
+                { Icon: Mail, value: 'jonixcreative@gmail.com', href: 'mailto:jonixcreative@gmail.com' },
                 { Icon: MapPin, value: 'Kodairoad, Dindigul, Tamilnadu', href: 'https://maps.google.com/?q=Kodairoad,+Dindigul,+Tamilnadu' },
                 { Icon: Clock, value: 'Responds within 24h', href: null },
               ].map(({ Icon, value, href }) => {

@@ -234,6 +234,6 @@ export const SOCIAL_LINKS = {
 
 export const CONTACT_INFO = {
   phone: '+91 74020 96762',
-  email: 'anbumanik22@gmail.com',
+  email: 'jonixcreative@gmail.com',
   location: 'Kodairoad, Dindigul, Tamilnadu',
 };
