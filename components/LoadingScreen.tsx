@@ -42,7 +42,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
             className="absolute inset-2 rounded-full border-2 border-transparent border-b-blue-400 border-l-blue-400"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-2xl">🎬</span>
+            <img src="/images/logo.png" alt="Jonix Creative Logo" className="w-14 h-auto object-contain" />
           </div>
         </div>
 
