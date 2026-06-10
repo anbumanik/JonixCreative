@@ -11,7 +11,7 @@ export interface Testimonial {
 export interface PortfolioProject {
   slug: string;
   title: string;
-  category: 'Reels' | 'YouTube' | 'Corporate' | 'Commercial Ads' | 'Podcast Editing';
+  category: 'Reels' | 'YouTube' | 'Corporate';
   thumbnail: string;
   videoUrl: string;
   description: string;

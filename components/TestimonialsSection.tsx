@@ -9,11 +9,11 @@ import type { Testimonial } from '@/lib/types';
 import Image from 'next/image';
 
 const StarRating = ({ rating }: { rating: number }) => (
-  <div className="flex justify-center gap-1 mb-6">
+  <div className="flex justify-center gap-1 mb-4 sm:mb-6">
     {Array.from({ length: 5 }).map((_, i) => (
       <Star
         key={i}
-        size={18}
+        size={14}
         className={i < rating ? 'star-filled' : 'text-slate-600'}
         fill={i < rating ? '#fbbf24' : 'none'}
       />
@@ -85,24 +85,26 @@ const TestimonialsSection = () => {
               animate="center"
               exit="exit"
               transition={{ duration: 0.4, ease: 'easeInOut' }}
-              className="glass border border-white/8 rounded-3xl p-8 sm:p-12 relative overflow-hidden"
+              className="glass border border-white/8 rounded-2xl sm:rounded-3xl relative overflow-hidden max-w-xs sm:max-w-none mx-auto"
+              style={{ padding: '1.75rem 1.5rem', }}
+
             >
               {/* Decorative quote */}
               <Quote
-                size={80}
-                className="absolute top-6 right-8 text-blue-600/10"
+                size={50}
+                className="absolute top-4 right-4 sm:top-6 sm:right-8 text-blue-600/10"
                 fill="currentColor"
               />
 
               <div className="relative flex flex-col items-center text-center">
                 <StarRating rating={t.rating} />
 
-                <blockquote className="text-white text-lg sm:text-xl md:text-2xl font-medium leading-relaxed mb-8 max-w-4xl">
+                <blockquote className="text-white text-sm sm:text-xl md:text-2xl font-medium leading-relaxed mb-5 sm:mb-8 max-w-4xl">
                   &ldquo;{t.review}&rdquo;
                 </blockquote>
 
                 <div className="flex flex-col items-center gap-3">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-blue-500/40 glow-blue-sm">
+                  <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-blue-500/40 glow-blue-sm">
                     <Image
                       src={t.avatar}
                       alt={t.name}
@@ -112,8 +114,8 @@ const TestimonialsSection = () => {
                     />
                   </div>
                   <div>
-                    <p className="text-white font-semibold text-lg">{t.name}</p>
-                    <p className="text-blue-400 text-sm">
+                    <p className="text-white font-semibold text-sm sm:text-lg">{t.name}</p>
+                    <p className="text-blue-400 text-xs sm:text-sm">
                       {t.role} — {t.company}
                     </p>
                   </div>

@@ -78,18 +78,7 @@ export const FALLBACK_PORTFOLIO: PortfolioProject[] = [
     tools: ['Premiere Pro', 'After Effects', 'Motion'],
     duration: '3:20',
   },
-  {
-    slug: 'luxe-commercial-ad',
-    title: 'Luxe Lifestyle Commercial',
-    category: 'Commercial Ads',
-    thumbnail: '/images/portfolio_thumb3.png',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    description:
-      'A 60-second luxury commercial ad for Luxe Lifestyle Co. featuring dramatic lighting, slow-motion shots, and cinematic color grading.',
-    clientFeedback: 'The most beautiful ad we\'ve ever had. Sales went up 40%!',
-    tools: ['DaVinci Resolve', 'After Effects', 'Premiere Pro'],
-    duration: '1:00',
-  },
+
   {
     slug: 'youtube-tech-review',
     title: 'Tech Review YouTube Series',
@@ -102,18 +91,7 @@ export const FALLBACK_PORTFOLIO: PortfolioProject[] = [
     tools: ['Premiere Pro', 'Photoshop', 'After Effects'],
     duration: '12:45',
   },
-  {
-    slug: 'podcast-nation-edit',
-    title: 'Podcast Nation — Season 2',
-    category: 'Podcast Editing',
-    thumbnail: '/images/portfolio_thumb2.png',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    description:
-      'Full audio and video podcast editing for 12 episodes of Podcast Nation. Includes intro, outro, chapter markers, and social media clips.',
-    clientFeedback: 'Crystal clear audio and amazing video quality every episode.',
-    tools: ['Adobe Audition', 'Premiere Pro', 'Audacity'],
-    duration: '45:00',
-  },
+
   {
     slug: 'global-retail-reel',
     title: 'Global Retail Product Reel',

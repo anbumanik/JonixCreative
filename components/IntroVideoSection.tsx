@@ -62,7 +62,7 @@ const IntroVideoSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative w-full max-w-4xl mx-auto mb-20"
+          className="relative w-full max-w-none sm:max-w-4xl mx-auto mb-20"
         >
           {/* Glow behind video */}
           <div className="absolute inset-0 bg-blue-600/20 rounded-2xl blur-2xl" />

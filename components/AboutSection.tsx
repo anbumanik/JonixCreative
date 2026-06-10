@@ -199,7 +199,7 @@ const AboutSection = () => {
                 <span className="text-white font-semibold">Jonix Creative</span> is a professional video editing studio founded by <span className="text-blue-400 font-semibold">D. Joan Paul Kirubai</span> — built on one unwavering belief:
               </p>
               
-              <div className="my-6">
+              <div className="my-6" style={{ marginBottom: '2rem' }}>
                 <p className="text-xl sm:text-2xl font-bold tracking-wide text-white">
                   &ldquo;Turning Vision Into Reality.&rdquo;
                 </p>
@@ -230,9 +230,8 @@ const AboutSection = () => {
             </div>
 
             {/* Mission Callout */}
-            <div className="p-5 rounded-xl glass border border-blue-500/20 bg-blue-950/10 hover:border-blue-500/30 transition-all card-hover" style={{ marginTop: '3rem' }}>
-              <div className="flex items-start gap-4">
-                <span className="text-2xl shrink-0 mt-1">🎯</span>
+            <div className="p-5 rounded-xl glass border border-blue-500/20 bg-blue-950/10 hover:border-blue-500/30 transition-all card-hover" style={{ marginTop: '3rem', paddingLeft: '2rem' }}>
+              <div>
                 <div>
                   <h4 className="text-white font-semibold mb-3 text-base sm:text-lg">Our Mission</h4>
                   <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">

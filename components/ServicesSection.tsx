@@ -42,8 +42,8 @@ const ServiceCard = ({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       whileHover={{ y: -8 }}
-      className="group relative pr-7 py-7 pb-11 rounded-2xl glass border border-white/8 hover:border-blue-500/30 transition-all duration-300"
-      style={{ paddingLeft: '2.25rem' }}
+      className="group relative pr-7 rounded-2xl glass border border-white/8 hover:border-blue-500/30 transition-all duration-300"
+      style={{ paddingLeft: '2.25rem', paddingTop: '2.5rem', paddingBottom: '3rem' }}
     >
       {/* Hover glow background */}
       <div className="absolute inset-0 bg-linear-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/5 group-hover:to-blue-400/5 transition-all duration-500 rounded-2xl overflow-hidden" />

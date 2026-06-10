@@ -35,7 +35,7 @@ const Footer = () => {
 
         {/* ── Top section ── */}
         <div
-          className="pb-10 flex flex-col md:flex-row md:items-start md:justify-start gap-16 lg:gap-32 xl:gap-40 border-b border-white/5"
+          className="pb-10 flex flex-col md:flex-row md:items-start md:justify-start gap-10 md:gap-16 lg:gap-32 xl:gap-40 border-b border-white/5"
           style={{ paddingTop: '42px' }}
         >
 
@@ -155,7 +155,7 @@ const Footer = () => {
           <p className="text-slate-600 text-[11px]">
             © {new Date().getFullYear()} JonixCreative. All rights reserved.
           </p>
-          <p className="text-slate-600 text-[11px] flex items-center gap-1" style={{ marginRight: '80px' }}>
+          <p className="text-slate-600 text-[11px] flex items-center gap-1 sm:mr-20">
             Made with <Heart size={9} className="text-blue-500 fill-blue-500 mx-0.5" /> by{' '}
             <a
               href="https://portfolioan-xi.vercel.app/"

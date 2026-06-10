@@ -91,7 +91,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-[85svh] md:min-h-[100svh] flex flex-col items-center justify-center overflow-hidden"
     >
 
 

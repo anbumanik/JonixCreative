@@ -82,7 +82,7 @@ const ContactSection = () => {
       {/* Background decoration */}
       <div className="absolute top-1/4 left-[10%] -translate-x-1/2 w-[35vw] h-[35vw] min-w-[18rem] aspect-square bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="w-full max-w-400 mx-auto">
+      <div className="w-full max-w-400 mx-auto overflow-hidden">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -93,7 +93,7 @@ const ContactSection = () => {
           style={{ marginBottom: '64px' }}
         >
           <div className="section-divider" />
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mt-4 uppercase">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl text-white mt-4 uppercase">
             Start Your <span className="gradient-text">Project</span>
           </h2>
         </motion.div>
@@ -106,31 +106,31 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="md:col-span-5 lg:col-span-4 md:col-start-2 lg:col-start-3 space-y-8 flex flex-col md:items-start"
+            className="md:col-span-5 lg:col-span-4 md:col-start-2 lg:col-start-3 space-y-8 flex flex-col items-center md:items-start text-center md:text-left w-full overflow-hidden"
             style={{ marginTop: '-40px' }}
           >
-            <div className="space-y-4">
+            <div className="space-y-4 w-full">
               <p className="text-[13px] font-bold text-blue-500 uppercase tracking-[0.25em]">
                 Let&apos;s Talk
               </p>
-              <p className="text-slate-400 text-lg leading-relaxed max-w-md">
+              <p className="text-slate-400 text-sm sm:text-lg leading-relaxed">
                 Ready to elevate your brand with cinematic visuals? Whether it&apos;s a high-impact commercial or an engaging YouTube video, we&apos;re here to bring your vision to life. Let&apos;s discuss your next big project.
               </p>
             </div>
 
             {/* Simple Contact List */}
-            <div className="space-y-6 pt-4">
+            <div className="space-y-6 pt-4 flex flex-col items-center md:items-start w-full">
               {[
                 { Icon: Mail, value: 'jonixcreative@gmail.com', href: 'mailto:jonixcreative@gmail.com' },
                 { Icon: MapPin, value: 'Kodairoad, Dindigul, Tamilnadu', href: 'https://maps.google.com/?q=Kodairoad,+Dindigul,+Tamilnadu' },
                 { Icon: Clock, value: 'Responds within 24h', href: null },
               ].map(({ Icon, value, href }) => {
                 const content = (
-                  <div className="flex items-center gap-5 group">
-                    <div className="w-14 h-14 rounded-full bg-[#101015] border border-white/6 flex items-center justify-center text-blue-500 group-hover:bg-blue-600/10 group-hover:border-blue-500/20 transition-all duration-300">
+                  <div className="flex items-center gap-4 group overflow-hidden">
+                    <div className="w-12 h-12 shrink-0 rounded-full bg-[#101015] border border-white/6 flex items-center justify-center text-blue-500 group-hover:bg-blue-600/10 group-hover:border-blue-500/20 transition-all duration-300">
                       <Icon size={22} />
                     </div>
-                    <span className="text-slate-300 font-medium text-lg group-hover:text-white transition-colors">
+                    <span className="text-slate-300 font-medium text-sm sm:text-base group-hover:text-white transition-colors break-all">
                       {value}
                     </span>
                   </div>
@@ -138,7 +138,7 @@ const ContactSection = () => {
 
                 if (href) {
                   return (
-                    <a key={value} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined} className="block w-fit">
+                    <a key={value} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined} className="block">
                       {content}
                     </a>
                   );

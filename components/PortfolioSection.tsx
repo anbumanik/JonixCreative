@@ -9,7 +9,7 @@ import { useFirebaseData } from '@/hooks/useFirebaseData';
 import { FALLBACK_PORTFOLIO } from '@/lib/constants';
 import type { PortfolioProject } from '@/lib/types';
 
-const CATEGORIES = ['All', 'Reels', 'YouTube', 'Corporate', 'Commercial Ads', 'Podcast Editing'];
+const CATEGORIES = ['All', 'Reels', 'YouTube', 'Corporate'];
 
 const PortfolioCard = ({ project }: { project: PortfolioProject }) => (
   <motion.div
