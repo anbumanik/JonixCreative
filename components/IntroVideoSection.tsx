@@ -71,7 +71,7 @@ const IntroVideoSection = () => {
             <div className="aspect-video bg-black flex items-center justify-center">
               <video
                 ref={videoRef}
-                src="https://ik.imagekit.io/g1241mexj/Sequence%2001%2019%201%20Prob4.mp4"
+                src="https://pub-20f2b83ac518497983302420bed0bb94.r2.dev/ANBU/movie.mp4"
                 className="w-full h-full max-h-full"
                 loop
                 playsInline

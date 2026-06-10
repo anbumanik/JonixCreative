@@ -83,21 +83,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.02 }}
               className="flex items-center gap-3 shrink-0 group"
             >
-              {/* Glowing icon */}
-              <div className="relative w-9 h-9">
-                <div className="absolute inset-0 rounded-xl bg-linear-to-br from-blue-500 to-blue-700 group-hover:from-blue-400 group-hover:to-blue-600 transition-all duration-300" />
-                <div className="absolute inset-0 rounded-xl bg-blue-500 blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
-                <div className="relative flex items-center justify-center w-full h-full">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <polygon points="5.5,4.5 12,8 5.5,11.5" fill="white" />
-                  </svg>
-                </div>
-              </div>
-              {/* Brand text */}
-              <span className="font-display text-[1.2rem] md:text-[1.3rem] tracking-widest leading-none">
-                <span className="text-white">JONIX</span>
-                <span className="text-blue-400">CREATIVE</span>
-              </span>
+              <img src="/images/logo.png" alt="Jonix Creative Logo" className="h-12 md:h-16 w-auto object-contain scale-110 md:scale-125 origin-left" />
             </motion.a>
 
             {/* ── Center Nav Links (Desktop) ── */}
@@ -220,14 +206,7 @@ const Navbar = () => {
               {/* Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/6">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-linear-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                      <polygon points="5.5,4.5 12,8 5.5,11.5" fill="white" />
-                    </svg>
-                  </div>
-                  <span className="font-display text-sm tracking-widest text-white">
-                    JONIX<span className="text-blue-400">CREATIVE</span>
-                  </span>
+                  <img src="/images/logo.png" alt="Jonix Creative Logo" className="h-10 w-auto object-contain scale-110 origin-left" />
                 </div>
                 <button
                   onClick={() => setMobileOpen(false)}

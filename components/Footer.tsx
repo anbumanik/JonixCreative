@@ -42,12 +42,7 @@ const Footer = () => {
           {/* Brand block */}
           <div className="max-w-xs space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-linear-to-br from-blue-600 to-blue-400 flex items-center justify-center shadow-[0_0_18px_rgba(59,130,246,0.3)]">
-                <span className="text-white font-bold text-base leading-none">J</span>
-              </div>
-              <span className="font-display text-lg text-white tracking-widest">
-                JONIX<span className="text-blue-400">CREATIVE</span>
-              </span>
+              <img src="/images/logo.png" alt="Jonix Creative Logo" className="h-10 w-auto object-contain" />
             </div>
             <p className="text-slate-500 text-[13px] leading-relaxed">
               Turning vision into reality — for creators, brands & businesses.
