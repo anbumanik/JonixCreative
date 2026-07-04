@@ -38,7 +38,7 @@ const PortfolioCard = memo(({ project, index }: PortfolioCardProps) => {
               muted
               loop
               playsInline
-              preload="none"
+              preload="metadata"
               className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
             />
           ) : (

@@ -14,7 +14,9 @@ function getSharedObserver(): IntersectionObserver {
           if (cb) cb(entry.isIntersecting);
         });
       },
-      { threshold: 0.2, rootMargin: '0px 0px -10% 0px' }
+      // threshold 0.05 = fires as soon as ~5% of card is visible
+      // No negative rootMargin — don't delay trigger unnecessarily
+      { threshold: 0.05 }
     );
   }
   return sharedObserver;
@@ -32,10 +34,8 @@ export const useSharedVideoObserver = () => {
 
     const handleVisibility = (isVisible: boolean) => {
       if (isVisible) {
-        // Debounce play by 150ms to avoid firing during fast scroll
-        playTimeout.current = setTimeout(() => {
-          el.play().catch(() => {});
-        }, 150);
+        // Play immediately — no debounce delay
+        el.play().catch(() => {});
       } else {
         if (playTimeout.current) clearTimeout(playTimeout.current);
         el.pause();
