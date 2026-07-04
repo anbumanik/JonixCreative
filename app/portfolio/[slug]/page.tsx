@@ -100,13 +100,24 @@ export default function PortfolioProjectPage({
               className="aspect-video bg-slate-900 relative cursor-pointer group"
               onClick={() => setPlaying(true)}
             >
-              <Image
-                src={project.thumbnail}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 960px"
-              />
+              {project.thumbnail.match(/\.(mp4|webm)$/i) ? (
+                <video
+                  src={project.thumbnail}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <Image
+                  src={project.thumbnail}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 960px"
+                />
+              )}
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
@@ -119,16 +130,25 @@ export default function PortfolioProjectPage({
             </div>
           ) : (
             <div className="relative aspect-video bg-black">
-              <iframe
-                src={`${project.videoUrl}?autoplay=1`}
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title={project.title}
-              />
+              {project.videoUrl.match(/\.(mp4|webm)$/i) ? (
+                <video
+                  src={project.videoUrl}
+                  autoPlay
+                  controls
+                  className="w-full h-full"
+                />
+              ) : (
+                <iframe
+                  src={`${project.videoUrl}?autoplay=1`}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title={project.title}
+                />
+              )}
               <button
                 onClick={() => setPlaying(false)}
-                className="absolute top-3 right-3 p-2 glass rounded-full text-white hover:bg-white/20 transition-colors"
+                className="absolute top-3 right-3 p-2 glass rounded-full text-white hover:bg-white/20 transition-colors z-10"
               >
                 <X size={16} />
               </button>

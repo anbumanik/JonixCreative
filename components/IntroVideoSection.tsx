@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
-import { motion, useInView, type Variants } from 'framer-motion';
+import React from 'react';
+import { motion, type Variants } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
+import { useVideoAutoplay } from '@/hooks/useVideoAutoplay';
 
 const FEATURES = [
   { text: 'A dedicated team of professional editors' },
@@ -23,16 +24,7 @@ const fadeInUp: Variants = {
 };
 
 const IntroVideoSection = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const isInView = useInView(videoRef, { once: false, amount: 0.5 });
-
-  useEffect(() => {
-    if (isInView && videoRef.current) {
-      videoRef.current.play().catch((err) => console.log(err));
-    } else if (!isInView && videoRef.current) {
-      videoRef.current.pause();
-    }
-  }, [isInView]);
+  const videoRef = useVideoAutoplay(0.5);
 
   return (
     <section id="video" className="section-padding bg-[#050508] relative overflow-hidden">
@@ -76,6 +68,7 @@ const IntroVideoSection = () => {
                 loop
                 playsInline
                 controls
+                preload="none"
                 title="JonixCreative Introduction"
               />
             </div>

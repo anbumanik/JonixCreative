@@ -51,7 +51,7 @@ const WhatsAppWidget = () => {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.92 }}
         onMouseEnter={() => setShowTooltip(true)}
-        className="pointer-events-auto w-14 h-14 rounded-full bg-linear-to-br from-[#1d4ed8] to-[#3b82f6] flex items-center justify-center text-white shadow-[0_8px_30px_rgba(59,130,246,0.35)] hover:shadow-[0_8px_35px_rgba(59,130,246,0.5)] transition-all duration-300 relative group cursor-pointer border border-white/10"
+        className="pointer-events-auto w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-linear-to-br from-[#1d4ed8] to-[#3b82f6] flex items-center justify-center text-white shadow-[0_8px_30px_rgba(59,130,246,0.35)] hover:shadow-[0_8px_35px_rgba(59,130,246,0.5)] transition-all duration-300 relative group cursor-pointer border border-white/10"
         aria-label="Chat on WhatsApp"
       >
         {/* Pulsing ring background */}
@@ -60,10 +60,8 @@ const WhatsAppWidget = () => {
         {/* WhatsApp SVG Icon */}
         <svg 
           viewBox="0 0 24 24" 
-          width="26" 
-          height="26" 
           fill="currentColor"
-          className="transform group-hover:rotate-[8deg] transition-transform duration-300"
+          className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 transform group-hover:rotate-[8deg] transition-transform duration-300"
         >
           <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.57 2.028 14.1 1.002 11.516 1c-5.44 0-9.866 4.372-9.87 9.802 0 1.63.43 3.224 1.246 4.634L1.89 20.8l5.525-1.446L6.647 19.15zM17.13 15.36c-.28-.14-1.65-.81-1.91-.9-.26-.1-.45-.14-.64.14-.19.28-.73.9-.9 1.1-.17.19-.34.21-.62.07-1.16-.58-1.92-1.03-2.67-2.33-.2-.34.2-.32.57-1.05.06-.13.03-.24-.01-.33-.05-.09-.45-1.08-.62-1.48-.17-.41-.33-.35-.45-.35h-.39c-.14 0-.37.05-.56.26-.19.21-.73.71-.73 1.74s.75 2.02.85 2.16c.1.14 1.47 2.25 3.57 3.16.5.22.89.35 1.2.45.5.16.96.14 1.32.09.4-.06 1.65-.67 1.88-1.32.23-.66.23-1.22.16-1.34-.07-.12-.26-.19-.54-.33z"/>
         </svg>

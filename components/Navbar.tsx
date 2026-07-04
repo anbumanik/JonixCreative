@@ -3,12 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { NAV_LINKS } from '@/lib/constants';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,9 +81,20 @@ const Navbar = () => {
             {/* ── Logo (Left) ── */}
             <motion.a
               href="#home"
-              onClick={(e) => { e.preventDefault(); scrollTo('#home'); }}
+              onClick={(e) => {
+                e.preventDefault();
+                const pwd = window.prompt("Admin Access - Enter Password:");
+                if (pwd === 'joan') {
+                  sessionStorage.setItem('isAdmin', 'true');
+                  router.push('/admin');
+                } else if (pwd !== null) {
+                  alert("Incorrect password!");
+                } else {
+                  scrollTo('#home');
+                }
+              }}
               whileHover={{ scale: 1.02 }}
-              className="flex items-center gap-3 shrink-0 group"
+              className="flex items-center gap-3 shrink-0 group cursor-pointer"
             >
               <img src="/images/logo.png" alt="Jonix Creative Logo" className="h-12 md:h-16 w-auto object-contain scale-110 md:scale-125 origin-left" />
             </motion.a>

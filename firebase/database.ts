@@ -42,3 +42,29 @@ export async function submitContactForm(data: ContactFormData): Promise<void> {
     timestamp: new Date().toISOString(),
   });
 }
+
+export interface ContactSubmission extends ContactFormData {
+  id: string;
+  timestamp: string;
+}
+
+export async function getContacts(): Promise<ContactSubmission[]> {
+  try {
+    const snapshot = await get(ref(database, 'contacts'));
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+      const contacts = Object.entries(data).map(([id, val]) => ({
+        ...(val as any),
+        id,
+      })) as ContactSubmission[];
+      
+      // Sort by timestamp descending (newest first)
+      return contacts.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+    }
+    return [];
+  } catch (error) {
+    console.error('Error fetching contacts:', error);
+    return [];
+  }
+}
+
