@@ -7,18 +7,14 @@ import { FALLBACK_PORTFOLIO } from '@/lib/constants';
 import type { PortfolioProject } from '@/lib/types';
 import PortfolioCard from './PortfolioCard';
 
-const CATEGORIES = ['All', 'Reels', 'YouTube', 'Corporate'] as const;
+const CATEGORIES = ['All', 'Montages', 'Short-Form Videos', 'Long-Form Videos'] as const;
 
 const PortfolioGrid = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const projects = useFirebaseData<PortfolioProject[]>('portfolio', FALLBACK_PORTFOLIO);
 
-  // useMemo: avoid recomputing filtered list on every render
   const filtered = useMemo(
-    () =>
-      activeCategory === 'All'
-        ? projects
-        : projects.filter((p) => p.category === activeCategory),
+    () => activeCategory === 'All' ? projects : projects.filter((p) => p.category === activeCategory),
     [activeCategory, projects]
   );
 
@@ -51,7 +47,7 @@ const PortfolioGrid = () => {
         </motion.div>
 
         {/* Filter tabs */}
-        <div className="flex justify-center gap-2 flex-wrap mb-10">
+        <div className="flex justify-center gap-2 flex-wrap" style={{ marginBottom: '3rem' }}>
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
@@ -63,7 +59,7 @@ const PortfolioGrid = () => {
           ))}
         </div>
 
-        {/* Grid — no motion layout on wrapper to avoid reflow */}
+        {/* Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 w-full">
           <AnimatePresence mode="popLayout" initial={false}>
             {filtered.map((project, index) => (
@@ -71,26 +67,8 @@ const PortfolioGrid = () => {
             ))}
           </AnimatePresence>
         </div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-14"
-        >
-          <p className="text-slate-400 mb-4">Have a project in mind?</p>
-          <button
-            onClick={() =>
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-            }
-            className="btn-primary"
-          >
-            Start Your Project
-          </button>
-        </motion.div>
       </div>
+
     </section>
   );
 };

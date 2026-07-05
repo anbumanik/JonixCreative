@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
-import { CheckCircle } from 'lucide-react';
-import { useVideoAutoplay } from '@/hooks/useVideoAutoplay';
+import { ArrowUpRight, CheckCircle } from 'lucide-react';
 
 const FEATURES = [
   { text: 'A dedicated team of professional editors' },
@@ -23,9 +22,9 @@ const fadeInUp: Variants = {
   }),
 };
 
-const IntroVideoSection = () => {
-  const videoRef = useVideoAutoplay(0.5);
+const INTRO_VIDEO_URL = 'https://ik.imagekit.io/d5lm3vdk3/New%20Folder/Sequence%2001%2019%201%20Prob4.mp4';
 
+const IntroVideoSection = () => {
   return (
     <section id="video" className="section-padding bg-[#050508] relative overflow-hidden">
       {/* Background decoration */}
@@ -48,32 +47,28 @@ const IntroVideoSection = () => {
           </h2>
         </motion.div>
 
-        {/* Video embed - Centered and Large */}
+        {/* Embedded Video Player */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative w-full max-w-none sm:max-w-4xl mx-auto mb-20"
+          className="relative w-full max-w-4xl mx-auto mb-20"
         >
           {/* Glow behind video */}
-          <div className="absolute inset-0 bg-blue-600/20 rounded-2xl blur-2xl" />
-
+          <div className="absolute inset-0 bg-blue-600/20 rounded-2xl blur-2xl pointer-events-none" />
           <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/20">
-            <div className="aspect-video bg-black flex items-center justify-center">
-              <video
-                ref={videoRef}
-                src="https://pub-20f2b83ac518497983302420bed0bb94.r2.dev/ANBU/movie.mp4"
-                className="w-full h-full max-h-full"
-                loop
-                playsInline
-                controls
-                preload="none"
-                title="JonixCreative Introduction"
-              />
-            </div>
+            <video
+              src={INTRO_VIDEO_URL}
+              controls
+              autoPlay
+              loop
+              playsInline
+              style={{ width: '100%', display: 'block', maxHeight: '520px', objectFit: 'cover', background: '#000' }}
+            />
           </div>
         </motion.div>
+
 
         {/* Features list - Grid layout */}
         <div className="w-full max-w-400 mx-auto flex flex-col items-center">
@@ -107,18 +102,6 @@ const IntroVideoSection = () => {
             ))}
           </div>
 
-          <div className="text-center w-full flex justify-center" style={{ marginTop: '24px' }}>
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary px-8 py-4 text-lg inline-flex items-center justify-center min-w-60"
-            >
-              Start Your Project Today
-            </motion.button>
-          </div>
         </div>
       </div>
     </section>

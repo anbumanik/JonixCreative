@@ -108,37 +108,6 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="px-12 py-10 sm:px-16 sm:py-12 rounded-3xl glass border border-white/8 relative flex flex-col lg:flex-row items-center justify-between gap-8"
-          style={{ marginTop: '60px', paddingLeft: '40px', paddingRight: '40px' }}
-        >
-          {/* Glow */}
-          <div className="absolute inset-0 bg-linear-to-r from-blue-600/10 via-transparent to-transparent rounded-3xl pointer-events-none" />
-
-          <div className="relative z-10 w-full lg:w-2/3 text-left">
-            <h3 className="font-display text-3xl sm:text-4xl text-white mb-4">
-              Don&apos;t See What You Need?
-            </h3>
-            <p className="text-slate-400 text-lg leading-relaxed">
-              Every brand has a unique story. We offer completely tailored video editing packages designed to fit your specific vision, style, and platform requirements. Let&apos;s discuss your ideas and build a custom solution just for you.
-            </p>
-          </div>
-          
-          <div className="relative z-10 w-full lg:w-1/3 flex justify-start lg:justify-end">
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary"
-            >
-              Get a Custom Quote
-              <ArrowRight size={16} />
-            </button>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
